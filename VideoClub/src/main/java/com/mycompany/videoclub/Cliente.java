@@ -6,11 +6,13 @@ public class Cliente {
     private String nombre;
     private int rut;
     private Arriendo[] registroArriendos;
+    private int tamaño;
     
     public Cliente(String nombre, int rut){
         this.nombre = nombre;
         this.rut = rut;
         registroArriendos = new Arriendo[20];
+        tamaño = 0;
     }
     
     public String getNombre() {
@@ -35,5 +37,12 @@ public class Cliente {
 
     public void setRegistroArriendos(Arriendo[] registroArriendos) {
         this.registroArriendos = registroArriendos;
+    }
+    
+    public boolean AddArriendo(Arriendo nuevoArriendo){
+        if (tamaño >= registroArriendos.length) return false;
+        registroArriendos[tamaño] = nuevoArriendo;
+        tamaño++;
+        return true;
     }
 }
