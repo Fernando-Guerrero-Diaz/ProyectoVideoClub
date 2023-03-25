@@ -87,4 +87,21 @@ public class Película {
     public void setPrecioArriendo(int precioArriendo) {
         this.precioArriendo = precioArriendo;
     }
+    
+    public void Print(){
+        System.out.println("Nombre de Película: " + nombre);
+        System.out.println("Director: " + director);
+        System.out.print("Actores principales: " + actoresPrincipales[0]);
+        if (actoresPrincipales[1] != null) System.out.print(", " + actoresPrincipales[1]);
+        if (actoresPrincipales[2] != null) System.out.print(", " + actoresPrincipales[2]);
+        System.out.println("");
+        System.out.print("Género: " + géneros[0]);
+        if (géneros[1] != null) System.out.print(", " + géneros[1]);
+        if (géneros[2] != null) System.out.print(", " + géneros[2]);
+        System.out.println("");
+        System.out.println("Puntuación: " + Float.toString(puntuación));
+        System.out.println("Stock: " + Integer.toString(stock));
+        System.out.println("Arriendos: " + Integer.toString(arriendos));
+        System.out.println("Precio de Arriendo: " + Integer.toString(precioArriendo));
+    }
 }
