@@ -6,12 +6,14 @@ public class Arriendo {
     private LocalDate fechaArriendo;
     private long díasArriendo;
     private int precioArriendo;
+    private boolean devuelto;
     
     public Arriendo(String película, long días, int precio){
         películaArrendada = película;
         fechaArriendo = LocalDate.now();
         díasArriendo = días;
         precioArriendo = precio;
+        devuelto = false;
     }
     
     public String getPelícula(){

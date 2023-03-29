@@ -1,6 +1,6 @@
 
 package com.mycompany.videoclub;
-
+import java.time.LocalDate;
 
 public class Cliente {
     private String nombre;
@@ -67,5 +67,13 @@ public class Cliente {
         System.out.println("Nombre: " + nombre);
         System.out.println("Rut: " + Integer.toString(rut));
         System.out.println("Email:" + email);
+    }
+    
+    public void showArriendos(){
+        
+    }
+    
+    public void showArriendos(LocalDate fecha){
+        
     }
 }
