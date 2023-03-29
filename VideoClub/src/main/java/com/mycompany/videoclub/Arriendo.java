@@ -2,23 +2,23 @@ package com.mycompany.videoclub;
 import java.time.LocalDate;
 
 public class Arriendo {
-    private Película películaArrendada;
+    private String películaArrendada;
     private LocalDate fechaArriendo;
     private long díasArriendo;
     private int precioArriendo;
     
-    public Arriendo(Película película, long días, int precio){
+    public Arriendo(String película, long días, int precio){
         películaArrendada = película;
         fechaArriendo = LocalDate.now();
         díasArriendo = días;
         precioArriendo = precio;
     }
     
-    public Película getPelícula(){
+    public String getPelícula(){
         return películaArrendada;
     }
     
-    public void setPelícula(Película película){
+    public void setPelícula(String película){
         películaArrendada = película;
     }
     

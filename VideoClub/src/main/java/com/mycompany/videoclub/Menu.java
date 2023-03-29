@@ -42,7 +42,7 @@ public static void Menu2() throws IOException {
                 Película nuevaPeli = new Película(Pel,Dir,Pun,Sto,Arr);
                 nuevaPeli.setGéneros(generos);
                 nuevaPeli.setActoresPrincipales(actores);
-                nuevaPeli.Print();
+                nuevaPeli.print();
                 break;
                 //Generos[0]="Rock";
                 //Pelicula2.setGéneros(Generos);

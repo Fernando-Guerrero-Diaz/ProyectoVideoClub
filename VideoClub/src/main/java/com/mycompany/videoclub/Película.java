@@ -80,7 +80,7 @@ public class Película {
     }
 
 
-    public void Print(){
+    public void print(){
         System.out.println("Nombre de Película: " + nombre);
         System.out.println("Director: " + director);
         System.out.print("Actores principales: " + actoresPrincipales[0]);
@@ -94,5 +94,6 @@ public class Película {
         System.out.println("Puntuación: " + Float.toString(puntuación));
         System.out.println("Stock: " + Integer.toString(stock));
         System.out.println("Arriendos: " + Integer.toString(arriendos));
+
     }
 }
