@@ -5,11 +5,13 @@ public class Arriendo {
     private Película películaArrendada;
     private LocalDate fechaArriendo;
     private long díasArriendo;
+    private int precioArriendo;
     
-    public Arriendo(Película película, long días){
+    public Arriendo(Película película, long días, int precio){
         películaArrendada = película;
         fechaArriendo = LocalDate.now();
         díasArriendo = días;
+        precioArriendo = precio;
     }
     
     public Película getPelícula(){
@@ -52,4 +54,13 @@ public class Arriendo {
         if (diferenciaDías < 0) return 0;
         return diferenciaDías;
     }
+    
+    public int getPrecioArriendo() {
+        return precioArriendo;
+    }
+
+    public void setPrecioArriendo(int precioArriendo) {
+        this.precioArriendo = precioArriendo;
+    }
+    
 }

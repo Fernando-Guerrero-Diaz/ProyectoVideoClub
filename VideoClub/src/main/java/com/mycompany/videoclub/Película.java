@@ -10,9 +10,9 @@ public class Película {
     private float puntuación;
     private int stock;
     private int arriendos;
-    private int precioArriendo;
 
-    public Película(String nombre, String director, float puntuación, int stock, int arriendos, int precioArriendo) {
+
+    public Película(String nombre, String director, float puntuación, int stock, int arriendos) {
         this.nombre = nombre;
         this.director = director;
         actoresPrincipales = new String[3];
@@ -20,7 +20,6 @@ public class Película {
         this.puntuación = puntuación;
         this.stock = stock;
         this.arriendos = arriendos;
-        this.precioArriendo = precioArriendo;
     }
     
     
@@ -80,14 +79,7 @@ public class Película {
         this.arriendos = arriendos;
     }
 
-    public int getPrecioArriendo() {
-        return precioArriendo;
-    }
 
-    public void setPrecioArriendo(int precioArriendo) {
-        this.precioArriendo = precioArriendo;
-    }
-    
     public void Print(){
         System.out.println("Nombre de Película: " + nombre);
         System.out.println("Director: " + director);
@@ -102,6 +94,5 @@ public class Película {
         System.out.println("Puntuación: " + Float.toString(puntuación));
         System.out.println("Stock: " + Integer.toString(stock));
         System.out.println("Arriendos: " + Integer.toString(arriendos));
-        System.out.println("Precio de Arriendo: " + Integer.toString(precioArriendo));
     }
 }

@@ -29,8 +29,6 @@ public static void Menu2() throws IOException {
                 int Sto= Integer.parseInt(MM.readLine());
                 System.out.println("Ingrese Arriendo actuales de la película: ");
                 int Arr= Integer.parseInt(MM.readLine());
-                System.out.println("Ingrese precio del arriendo de la pélicula: ");
-                int Pre= Integer.parseInt(MM.readLine());
                 String[] generos= new String[3];
                 String[] actores= new String[3];
                 for (int i=0;i<3;i++){
@@ -41,7 +39,7 @@ public static void Menu2() throws IOException {
                     System.out.println("Ingrese Actores Principales de la pélicula(" + (i+1) + "/3)");
                     actores[i]=MM.readLine();
                 }
-                Película nuevaPeli = new Película(Pel,Dir,Pun,Sto,Arr,Pre);
+                Película nuevaPeli = new Película(Pel,Dir,Pun,Sto,Arr);
                 nuevaPeli.setGéneros(generos);
                 nuevaPeli.setActoresPrincipales(actores);
                 nuevaPeli.Print();
