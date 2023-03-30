@@ -74,7 +74,12 @@ public class Cliente {
         }
     }
     
-    public void showArriendos(LocalDate fecha){
-        
+    public void showArriendos(String fecha){
+        LocalDate fechaArriendo = LocalDate.parse(fecha);
+        for (int i = 0; i < registroArriendos.size();i++){
+            Arriendo arr = registroArriendos.get(i);
+            if (arr.getFechaArriendo().compareTo(fechaArriendo)>0)
+            arr.print();
+        }
     }
 }
