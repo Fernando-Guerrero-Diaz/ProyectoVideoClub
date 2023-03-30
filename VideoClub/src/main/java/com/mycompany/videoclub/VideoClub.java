@@ -45,6 +45,6 @@ public class VideoClub {
         if(map.containsKey(c2.getRut())){
             map.get(c2.getRut()).print();
         }
-        //Menu.Menu2();
+        Menu.Menu2(map);
     }
 }

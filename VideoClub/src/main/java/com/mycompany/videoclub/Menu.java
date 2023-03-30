@@ -3,6 +3,7 @@ package com.mycompany.videoclub;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 
 public class Menu{
     private int opción;
@@ -10,11 +11,12 @@ public class Menu{
 public Menu(int opción){
     this.opción = opción;
 }
-public static void Menu2() throws IOException {
-    System.out.println("¡Bienvenido a la tienda de Películas!\n Escoge una opción: \n 1-Agregar una película  en el catalogo. \n 2-Mostrar Catalogo de péliculas.");
+public static void Menu2(HashMap<Integer,Cliente> map) throws IOException {
+    System.out.println("¡Bienvenido a la tienda de Películas!\n");
     BufferedReader MM=new BufferedReader (new InputStreamReader(System.in));
     boolean running = true;
     while(running){
+        System.out.println("Escoge una opción: \n 1-Agregar una película  en el catalogo. \n 2-Agregar nuevo Cliente en el sistema. \n 3-Terminar Programa.");
         int menu= Integer.parseInt(MM.readLine());
         switch (menu){
             case 1:
@@ -42,8 +44,30 @@ public static void Menu2() throws IOException {
                 Película nuevaPeli = new Película(Pel,Dir,Pun,Sto,Arr);
                 nuevaPeli.setGéneros(generos);
                 nuevaPeli.setActoresPrincipales(actores);
+                //HashMap<Integer,Cliente> map = new HashMap();
                 nuevaPeli.print();
+                
                 break;
+            case 2:
+                System.out.println("Ingrese nombre del nuevo usuario: ");
+                //Pelicula2.setNombre(MM.readLine());
+                String Cli=MM.readLine();
+                System.out.println("Ingrese Rut del nuevo usuario: ");
+                int Rut= Integer.parseInt(MM.readLine());
+                if(map.containsKey(Rut)){
+                    System.out.println("No se puede crear un usuario ya existente");
+                    break;
+                }
+                System.out.println("Ingrese correo electronico del nuevo usuario: ");
+                String Cor=MM.readLine();
+                Cliente nuevoCli= new Cliente(Cli,Rut,Cor);
+                nuevoCli.print();
+                //HashMap<Integer,Cliente> map = new HashMap();
+                map.put(nuevoCli.getRut(),nuevoCli);
+            if(map.containsKey(nuevoCli.getRut())){
+                map.get(nuevoCli.getRut()).print();
+            }
+            break;
                 //Generos[0]="Rock";
                 //Pelicula2.setGéneros(Generos);
                 //System.out.println(Pelicula2.getNombre()+ Pelicula2.getStock());
