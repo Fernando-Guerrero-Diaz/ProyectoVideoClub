@@ -1,26 +1,24 @@
 
 package com.mycompany.videoclub;
 import java.time.LocalDate;
+import java.util.LinkedList;
 
 public class Cliente {
     private String nombre;
     private int rut;
     private String email;
-    private Arriendo[] registroArriendos;
-    private int tamaño;
+    private LinkedList<Arriendo> registroArriendos;
     
     public Cliente(String nombre, int rut, String email){
         this.nombre = nombre;
         this.rut = rut;
         this.email = email;
-        registroArriendos = new Arriendo[20];
-        tamaño = 0;
+        registroArriendos = new LinkedList();
     }
-        public Cliente(String nombre, int rut, String email, Arriendo[] arriendos){
+        public Cliente(String nombre, int rut, String email, LinkedList<Arriendo> arriendos){
         this.nombre = nombre;
         this.rut = rut;
         this.email = email;
-        tamaño = 0;
         registroArriendos = arriendos;
     }
     
@@ -48,19 +46,20 @@ public class Cliente {
         this.email = email;
     }
 
-    public Arriendo[] getRegistroArriendos() {
+    public LinkedList<Arriendo> getRegistroArriendos() {
         return registroArriendos;
     }
 
-    public void setRegistroArriendos(Arriendo[] registroArriendos) {
+    public void setRegistroArriendos(LinkedList<Arriendo> registroArriendos) {
         this.registroArriendos = registroArriendos;
     }
     
-    public boolean AddArriendo(Arriendo nuevoArriendo){
-        if (tamaño >= registroArriendos.length) return false;
-        registroArriendos[tamaño] = nuevoArriendo;
-        tamaño++;
-        return true;
+    public void AddFirstArriendo(Arriendo nuevoArriendo){
+        registroArriendos.addFirst(nuevoArriendo);
+    }
+    
+    public void AddLastArriendo(Arriendo nuevoArriendo){
+        registroArriendos.addLast(nuevoArriendo);
     }
     
     public void print(){
@@ -70,7 +69,9 @@ public class Cliente {
     }
     
     public void showArriendos(){
-        
+        for (int i = 0; i < registroArriendos.size();i++){
+            registroArriendos.get(i).print();
+        }
     }
     
     public void showArriendos(LocalDate fecha){
