@@ -84,10 +84,15 @@ public class Arriendo {
     public void setPrecioArriendo(int precioArriendo) {
         this.precioArriendo = precioArriendo;
     }
+    
     public long getDeuda(){
         double porcentaje = 0.05;
         long deuda = (long) (díasDeAtraso() * precioArriendo * porcentaje);
         return deuda;
+    }
+    public void devolver(long atraso){
+        díasAtraso = atraso;
+        devuelto = true;
     }
     public void print(){
         System.out.println("Pelicula arrendada: " + películaArrendada);

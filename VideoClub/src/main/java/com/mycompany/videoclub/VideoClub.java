@@ -17,11 +17,11 @@ public class VideoClub {
         
         Arriendo arr1 = new Arriendo("Joker", "2023-03-20", 6, 2000);
         arr1.devolver();
-        arr1.setAtraso(1);
+        arr1.devolver(1);
         
         Arriendo arr2 = new Arriendo("Enter the Spiderverse", "2023-02-06", 10, 2000);
         arr2.devolver();
-        arr2.setAtraso(0);
+        arr2.devolver(0);
         // Arriendos de John Smith
         Arriendo arr3 = new Arriendo("2012", "2012-12-21", 2, 1500);
         
@@ -30,7 +30,7 @@ public class VideoClub {
         
         Arriendo arr5 = new Arriendo("The Lego Movie", "2023-01-11", 4, 2000);
         arr5.devolver();
-        arr5.setAtraso(7);
+        arr5.devolver(7);
         
         c1.AddLastArriendo(arr0);
         c1.AddLastArriendo(arr1);
