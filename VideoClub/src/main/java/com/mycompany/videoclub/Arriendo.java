@@ -94,6 +94,10 @@ public class Arriendo {
         díasAtraso = atraso;
         devuelto = true;
     }
+    
+    public boolean getDevuelto(){
+        return devuelto;
+    }
     public void print(){
         System.out.println("Pelicula arrendada: " + películaArrendada);
         System.out.println("Fecha de arriendo: " + fechaArriendo.toString());

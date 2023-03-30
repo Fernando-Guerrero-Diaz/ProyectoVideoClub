@@ -68,9 +68,13 @@ public class Cliente {
         System.out.println("Email:" + email);
     }
     
-    public void showArriendos(){
+    public void showArriendos(boolean pendientes){
         for (int i = 0; i < registroArriendos.size();i++){
-            registroArriendos.get(i).print();
+            Arriendo arr = registroArriendos.get(i);
+            if (pendientes){
+                if (arr.getDevuelto() == false) arr.print();
+            }
+            else arr.print();
         }
     }
     
