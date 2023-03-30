@@ -62,6 +62,9 @@ public class Arriendo {
         return diferenciaDías > 0;
     }
     
+    public void setAtraso(long atraso){
+        díasAtraso = atraso;
+    }
     public long díasDeAtraso(){
         if (devuelto) return díasAtraso;
         LocalDate díaHoy = LocalDate.now();
