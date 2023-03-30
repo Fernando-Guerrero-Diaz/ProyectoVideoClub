@@ -1,19 +1,16 @@
 package com.mycompany.videoclub;
 import java.io.*;
 import java.util.HashMap;
-import java.util.LinkedList;
 
 public class VideoClub {
 
     public static void main(String[] args) throws IOException {
-        LinkedList<Cliente> listaClientes = new LinkedList<Cliente>();
+        
+        //Creación de clientes por Main
         Cliente c1 = new Cliente("Fernando Guerrero", 19540726, "fdoguerrerodiaz96@gmail.com");
         Cliente c2 = new Cliente("John Smith", 12345678, "JSmith@yahoo.es");
         Cliente c3 = new Cliente("XXDemon69SlayerXX", 25999999, "xxDSlaya@roblox.com");
         HashMap<Integer,Cliente> map = new HashMap();
-        listaClientes.add(c1);
-        listaClientes.add(c2);
-        listaClientes.add(c3);
         //Creación por main de un historial de arriendos
         //Arriendos de Fernando Guerrero
         Arriendo arr0 = new Arriendo("Shrek 2", 15, 2000);
@@ -35,16 +32,17 @@ public class VideoClub {
         arr5.devolver();
         arr5.setAtraso(7);
         
+        c1.AddLastArriendo(arr0);
+        c1.AddLastArriendo(arr1);
+        c1.AddLastArriendo(arr2);
+        c2.AddLastArriendo(arr3);
+        c3.AddLastArriendo(arr4);
+        c3.AddLastArriendo(arr5);
+        
+        map.put(c1.getRut(), c1);
         map.put(c2.getRut(),c2);
-        Cliente x;
-        for(int i = 0; i < listaClientes.size();i++){
-            x = listaClientes.get(i);
-            x.print();
-            System.out.println("");
-        }
-        if(map.containsKey(c2.getRut())){
-            map.get(c2.getRut()).print();
-        }
+        map.put(c3.getRut(), c3);
+ 
         Menu.Menu2(map);
     }
 }
