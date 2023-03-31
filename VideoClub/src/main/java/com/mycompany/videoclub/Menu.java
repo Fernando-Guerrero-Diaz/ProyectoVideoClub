@@ -7,11 +7,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Menu{
-    private int opción;
-
-public Menu(int opción){
-    this.opción = opción;
-}
 public static void Menu2(HashMap<Integer,Cliente> map,LinkedList<Película> listaPelícula) throws IOException {
     System.out.println("¡Bienvenido a la tienda de Películas!");
     BufferedReader MM=new BufferedReader (new InputStreamReader(System.in));
