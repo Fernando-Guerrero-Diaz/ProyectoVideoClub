@@ -1,6 +1,7 @@
 package com.mycompany.videoclub;
 import java.io.*;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class VideoClub {
 
@@ -42,7 +43,9 @@ public class VideoClub {
         map.put(c1.getRut(), c1);
         map.put(c2.getRut(),c2);
         map.put(c3.getRut(), c3);
+        
+        LinkedList<Película> listaPelícula =new LinkedList(); 
  
-        Menu.Menu2(map);
+        Menu.Menu2(map,listaPelícula);
     }
 }

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Menu{
     private int opción;
@@ -11,12 +12,12 @@ public class Menu{
 public Menu(int opción){
     this.opción = opción;
 }
-public static void Menu2(HashMap<Integer,Cliente> map) throws IOException {
+public static void Menu2(HashMap<Integer,Cliente> map,LinkedList<Película> listaPelícula) throws IOException {
     System.out.println("¡Bienvenido a la tienda de Películas!");
     BufferedReader MM=new BufferedReader (new InputStreamReader(System.in));
     boolean running = true;
     while(running){
-        System.out.println("Escoge una opción: \n 1-Agregar una película  en el catalogo. \n 2-Agregar nuevo Cliente en el sistema. \n 3-Agregar nuevo arriendo \n 4-Terminar Programa.");
+        System.out.println("Escoge una opción: \n 1-Agregar una película en el catalogo. \n 2-Agregar nuevo cliente en el sistema. \n 3-Agregar nuevo arriendo \n 4-Mostrar todos los arriendos \n 5-Terminar Programa.");
         int menu= Integer.parseInt(MM.readLine());
         switch (menu){
             case 1:
@@ -31,22 +32,13 @@ public static void Menu2(HashMap<Integer,Cliente> map) throws IOException {
                 int Sto= Integer.parseInt(MM.readLine());
                 System.out.println("Ingrese Arriendo actuales de la película: ");
                 int Arr= Integer.parseInt(MM.readLine());
-                String[] generos= new String[3];
-                String[] actores= new String[3];
-                for (int i=0;i<3;i++){
-                    System.out.println("Ingrese generos de la pélicula(" + (i+1) + "/3)");
-                    generos[i]=MM.readLine();
-                }
-                for (int i=0;i<3;i++){
-                    System.out.println("Ingrese Actores Principales de la pélicula(" + (i+1) + "/3)");
-                    actores[i]=MM.readLine();
-                }
-                Película nuevaPeli = new Película(Pel,Dir,Pun,Sto,Arr);
-                nuevaPeli.setGéneros(generos);
-                nuevaPeli.setActoresPrincipales(actores);
-                //HashMap<Integer,Cliente> map = new HashMap();
+                System.out.println("Ingrese generos de la pélicula separados con comas: ");
+                String generos=MM.readLine();
+                System.out.println("Ingrese Actores Principales de la pélicula separados con comas: ");
+                String actores=MM.readLine();
+                Película nuevaPeli = new Película(Pel,Dir,Pun,Sto,Arr,generos.split(","),actores.split(","));
                 nuevaPeli.print();
-                
+                listaPelícula.add(nuevaPeli);
                 break;
             case 2:
                 System.out.println("Ingrese nombre del nuevo usuario: ");
@@ -92,11 +84,18 @@ public static void Menu2(HashMap<Integer,Cliente> map) throws IOException {
                 //System.out.println(Pelicula2.getNombre()+ Pelicula2.getStock());
                 break;
             case 4:
+                System.out.println("Mostrar Los arriendos pendientes: \n 1-Si \n 2-No \n");
+                int opcion=Integer.parseInt(MM.readLine());
+                for(Integer key: map.keySet()){
+                        System.out.println("Arriendos de: "+map.get(key).getNombre());
+                        map.get(key).showArriendos(opcion==1);                                                     
+                    }
+                break;               
+            case 5:
                 running=false;
                 break;
-            case 5:
             default:
-                System.out.println("Solo escoger entre 1 y 2 ");
+                System.out.println("Opción invalida.");
                 break;
             }
         }
