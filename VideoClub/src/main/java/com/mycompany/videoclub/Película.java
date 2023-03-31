@@ -15,8 +15,8 @@ public class Película {
     public Película(String nombre, String director, float puntuación, int stock, int arriendos) {
         this.nombre = nombre;
         this.director = director;
-        actoresPrincipales = new String[3];
-        géneros = new String[3];
+        this.actoresPrincipales = actoresPrincipales;
+        this.géneros = géneros;
         this.puntuación = puntuación;
         this.stock = stock;
         this.arriendos = arriendos;
