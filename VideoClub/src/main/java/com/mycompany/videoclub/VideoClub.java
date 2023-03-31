@@ -6,13 +6,21 @@ import java.util.LinkedList;
 public class VideoClub {
 
     public static void main(String[] args) throws IOException {
-        
+
+        HashMap<Integer,Cliente> map = new HashMap();        
+        LinkedList<Película> listaPelícula =new LinkedList();
+        inicializador(map,listaPelícula);
+ 
+        Menu.Menu2(map,listaPelícula);
+    }
+    
+    public static void inicializador(HashMap<Integer,Cliente> map, LinkedList<Película> listaPelícula){
+                
         //Creación de clientes por Main
         Cliente c1 = new Cliente("Fernando Guerrero", 19540726, "fdoguerrerodiaz96@gmail.com");
         Cliente c2 = new Cliente("John Smith", 12345678, "JSmith@yahoo.es");
         Cliente c3 = new Cliente("XXDemon69SlayerXX", 25999999, "xxDSlaya@roblox.com");
-        HashMap<Integer,Cliente> map = new HashMap();
-        //Creación por main de un historial de arriendos
+                //Creación por main de un historial de arriendos
         //Arriendos de Fernando Guerrero
         Arriendo arr0 = new Arriendo("Shrek 2", 15, 2000);
         
@@ -43,9 +51,5 @@ public class VideoClub {
         map.put(c1.getRut(), c1);
         map.put(c2.getRut(),c2);
         map.put(c3.getRut(), c3);
-        
-        LinkedList<Película> listaPelícula =new LinkedList(); 
- 
-        Menu.Menu2(map,listaPelícula);
     }
 }
