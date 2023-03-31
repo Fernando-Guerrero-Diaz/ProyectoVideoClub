@@ -86,13 +86,10 @@ public class Película {
         for (int i = 0; i<actoresPrincipales.length;i++ ){
             System.out.print(actoresPrincipales[i]);
         }
+        System.out.println("");
         for (int i = 0; i<géneros.length;i++ ){
             System.out.print(géneros[i]);
         }
-        System.out.println("");
-        System.out.print("Género: " + géneros[0]);
-        if (géneros[1] != null) System.out.print(", " + géneros[1]);
-        if (géneros[2] != null) System.out.print(", " + géneros[2]);
         System.out.println("");
         System.out.println("Puntuación: " + Float.toString(puntuación));
         System.out.println("Stock: " + Integer.toString(stock));
