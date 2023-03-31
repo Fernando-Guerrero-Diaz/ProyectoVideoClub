@@ -54,7 +54,49 @@ public class Arriendo {
     public void setDíasArriendo(long días){
         díasArriendo = días;
     }
+    public void setAtraso(long atraso){
+        díasAtraso = atraso;
+    }   
+    public int getPrecioArriendo() {
+        return precioArriendo;
+    }
+    public void devolver(long atraso){
+        díasAtraso = atraso;
+        devuelto = true;
+    }
+
+    public void setDíasAtraso(long díasAtraso) {
+        this.díasAtraso = díasAtraso;
+    }
+
+    public long getDíasAtraso() {
+        return díasAtraso;
+    }
     
+    public boolean getDevuelto(){
+        return devuelto;
+    }
+
+    public String getPelículaArrendada() {
+        return películaArrendada;
+    }
+
+    public void setPelículaArrendada(String películaArrendada) {
+        this.películaArrendada = películaArrendada;
+    }
+
+    public void setDevuelto(boolean devuelto) {
+        this.devuelto = devuelto;
+    }
+    
+    public void setPrecioArriendo(int precioArriendo) {
+        this.precioArriendo = precioArriendo;
+    }
+    public long getDeuda(){
+        double porcentaje = 0.05;
+        long deuda = (long) (díasDeAtraso() * precioArriendo * porcentaje);
+        return deuda;
+    }
     public boolean atrasado(){
         if (devuelto) return false;
         LocalDate díaHoy = LocalDate.now();
@@ -62,9 +104,6 @@ public class Arriendo {
         return diferenciaDías > 0;
     }
     
-    public void setAtraso(long atraso){
-        díasAtraso = atraso;
-    }
     public long díasDeAtraso(){
         if (devuelto) return díasAtraso;
         LocalDate díaHoy = LocalDate.now();
@@ -77,27 +116,7 @@ public class Arriendo {
         devuelto = true;
         
     }
-    public int getPrecioArriendo() {
-        return precioArriendo;
-    }
-
-    public void setPrecioArriendo(int precioArriendo) {
-        this.precioArriendo = precioArriendo;
-    }
     
-    public long getDeuda(){
-        double porcentaje = 0.05;
-        long deuda = (long) (díasDeAtraso() * precioArriendo * porcentaje);
-        return deuda;
-    }
-    public void devolver(long atraso){
-        díasAtraso = atraso;
-        devuelto = true;
-    }
-    
-    public boolean getDevuelto(){
-        return devuelto;
-    }
     public void print(){
         System.out.println("Pelicula arrendada: " + películaArrendada);
         System.out.println("Fecha de arriendo: " + fechaArriendo.toString());

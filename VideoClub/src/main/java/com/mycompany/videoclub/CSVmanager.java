@@ -22,10 +22,10 @@ public class CSVmanager {
         while (lector.hasNextLine()){
             String dataLine = lector.nextLine();
             String[] dataArray = dataLine.split(",");
-            Película peli = new Película(dataArray[0],dataArray[1],Float.parseFloat(dataArray[4]), Integer.parseInt(dataArray[5]), Integer.parseInt(dataArray[6]));
-            peli.setActoresPrincipales(dataArray[2].split(";"));
-            peli.setGéneros(dataArray[3].split(";"));
-            listaPelículas.add(peli);
+            //Película peli = new Película(dataArray[0],dataArray[1],Float.parseFloat(dataArray[4]), Integer.parseInt(dataArray[5]), Integer.parseInt(dataArray[6]));
+            //peli.setActoresPrincipales(dataArray[2].split(";"));
+            //peli.setGéneros(dataArray[3].split(";"));
+            //listaPelículas.add(peli);
         }
         return listaPelículas;
     }
