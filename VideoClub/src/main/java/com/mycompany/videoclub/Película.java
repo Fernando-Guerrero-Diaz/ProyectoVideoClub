@@ -12,7 +12,7 @@ public class Película {
     private int arriendos;
 
 
-    public Película(String nombre, String director, float puntuación, int stock, int arriendos) {
+    public Película(String nombre, String director, float puntuación, int stock, int arriendos, String[] géneros, String[] actoresPrincipales) {
         this.nombre = nombre;
         this.director = director;
         this.actoresPrincipales = actoresPrincipales;
@@ -83,9 +83,12 @@ public class Película {
     public void print(){
         System.out.println("Nombre de Película: " + nombre);
         System.out.println("Director: " + director);
-        System.out.print("Actores principales: " + actoresPrincipales[0]);
-        if (actoresPrincipales[1] != null) System.out.print(", " + actoresPrincipales[1]);
-        if (actoresPrincipales[2] != null) System.out.print(", " + actoresPrincipales[2]);
+        for (int i = 0; i<actoresPrincipales.length;i++ ){
+            System.out.print(actoresPrincipales[i]);
+        }
+        for (int i = 0; i<géneros.length;i++ ){
+            System.out.print(géneros[i]);
+        }
         System.out.println("");
         System.out.print("Género: " + géneros[0]);
         if (géneros[1] != null) System.out.print(", " + géneros[1]);
