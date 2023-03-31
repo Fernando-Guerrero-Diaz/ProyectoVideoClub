@@ -7,17 +7,13 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Menu{
-    private int opción;
 
-public Menu(int opción){
-    this.opción = opción;
-}
 public static void Menu2(HashMap<Integer,Cliente> map,LinkedList<Película> listaPelícula) throws IOException {
     System.out.println("¡Bienvenido a la tienda de Películas!");
     BufferedReader MM=new BufferedReader (new InputStreamReader(System.in));
     boolean running = true;
     while(running){
-        System.out.println("Escoge una opción: \n 1-Agregar una película en el catalogo. \n 2-Agregar nuevo cliente en el sistema. \n 3-Agregar nuevo arriendo \n 4-Mostrar todos los arriendos \n 5-Terminar Programa.");
+        System.out.println("Escoge una opción: \n 1-Agregar una película en el catalogo. \n 2-Agregar nuevo cliente en el sistema. \n 3-Agregar nuevo arriendo \n 4-Mostrar todos los arriendos \n 5-Mostrar los arriendos de un usuario\n 6-Terminar Programa.");
         int menu= Integer.parseInt(MM.readLine());
         switch (menu){
             case 1:
@@ -90,8 +86,21 @@ public static void Menu2(HashMap<Integer,Cliente> map,LinkedList<Película> list
                         System.out.println("Arriendos de: "+map.get(key).getNombre());
                         map.get(key).showArriendos(opcion==1);                                                     
                     }
-                break;               
+                break;
             case 5:
+                System.out.println("Ingrese Rut del Cliente a revisar: ");
+                int rut=Integer.parseInt(MM.readLine());
+                if(map.containsKey(rut)){
+                    System.out.println("Mostrar Los arriendos pendientes: \n 1-Si \n 2-No \n");
+                    int opcion2=Integer.parseInt(MM.readLine());
+                    System.out.println("Arriendos de: "+map.get(rut).getNombre());
+                    map.get(rut).showArriendos(opcion2==1);
+                }
+                else {
+                    System.out.println("El usuario no existe");
+                }
+                break;
+            case 6:
                 running=false;
                 break;
             default:
