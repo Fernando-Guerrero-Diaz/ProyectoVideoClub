@@ -13,7 +13,7 @@ public static void Menu2(HashMap<Integer,Cliente> map,LinkedList<Película> list
     BufferedReader MM=new BufferedReader (new InputStreamReader(System.in));
     boolean running = true;
     while(running){
-        System.out.println("Escoge una opción: \n 1-Agregar una película en el catalogo. \n 2-Agregar nuevo cliente en el sistema. \n 3-Agregar nuevo arriendo \n 4-Mostrar todos los arriendos \n 5-Mostrar los arriendos de un usuario\n 6-Terminar Programa.");
+        System.out.println("Escoge una opción: \n 1-Agregar una película en el catalogo. \n 2-Agregar nuevo cliente en el sistema. \n 3-Agregar nuevo arriendo. \n 4-Mostrar todos los arriendos. \n 5-Mostrar los arriendos de un usuario.\n 6-Mostrar los arriendos después de una fecha.\n 7-Terminar Programa.");
         int menu= Integer.parseInt(MM.readLine());
         switch (menu){
             case 1:
@@ -101,6 +101,17 @@ public static void Menu2(HashMap<Integer,Cliente> map,LinkedList<Película> list
                 }
                 break;
             case 6:
+                System.out.println("Ingrese fecha en adelante para  buscar arriendos Año-mes-día(YYYY-MM-DD): ");
+                String Fech=MM.readLine();
+                try{
+                for(Integer key: map.keySet()){
+                    System.out.println("Arriendos de: "+map.get(key).getNombre());
+                    map.get(key).showArriendos(Fech);
+                    System.out.println(" ");
+                }
+                }catch(Exception e){System.out.println("Error en introducir la fecha, utilice formato YYYY-MM-DD");}
+                break;
+            case 7:
                 running=false;
                 break;
             default:
