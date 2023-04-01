@@ -13,7 +13,7 @@ public static void Menu2(HashMap<Integer,Cliente> map,LinkedList<Película> list
     BufferedReader MM=new BufferedReader (new InputStreamReader(System.in));
     boolean running = true;
     while(running){
-        System.out.println("Escoge una opción: \n 1-Agregar una película en el catalogo. \n 2-Agregar nuevo cliente en el sistema. \n 3-Agregar nuevo arriendo. \n 4-Mostrar todos los arriendos. \n 5-Mostrar los arriendos de un usuario.\n 6-Mostrar los arriendos después de una fecha.\n 7-Terminar Programa.");
+        System.out.println("Escoge una opción: \n 1-Agregar una película en el catalogo. \n 2-Agregar nuevo cliente en el sistema. \n 3-Agregar nuevo arriendo. \n 4-Mostrar todos los arriendos. \n 5-Mostrar los arriendos de un usuario.\n 6-Mostrar los arriendos después de una fecha.\n 7-Devolver una película \n 8-Terminar Programa.");
         int menu= Integer.parseInt(MM.readLine());
         switch (menu){
             case 1:
@@ -111,7 +111,33 @@ public static void Menu2(HashMap<Integer,Cliente> map,LinkedList<Película> list
                 }
                 }catch(Exception e){System.out.println("Error en introducir la fecha, utilice formato YYYY-MM-DD");}
                 break;
+                
             case 7:
+                System.out.println("Ingrese rut del Cliente devolviendo:");
+                int rut2=Integer.parseInt(MM.readLine());
+                if(map.containsKey(rut2)){
+                    LinkedList<Arriendo> lista = map.get(rut2).getRegistroArriendos();
+                    for (int i = 0; i<lista.size();i++){
+                        Arriendo arr = lista.get(i);
+                        if (arr.getDevuelto()==false){
+                            System.out.println("Devolver " + arr.getPelícula() + "?\n 1- Si\n 2- No");
+                            int opcion2=Integer.parseInt(MM.readLine());
+                            if (opcion2 == 1){
+                                arr.devolver();
+                                System.out.println(arr.getPelícula() + " devuelto");
+                            }
+                        }
+                        
+                    }
+                    System.out.println("No hay más películas por devolver.");
+                    
+                }
+                else {
+                    System.out.println("El usuario no existe");
+                }
+                
+                break;
+            case 8:
                 running=false;
                 break;
             default:
