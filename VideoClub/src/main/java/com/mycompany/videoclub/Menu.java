@@ -61,7 +61,8 @@ public static void Menu2(HashMap<Integer,Cliente> map,LinkedList<Película> list
                 int Ru=Integer.parseInt(MM.readLine());
                 if(map.containsKey(Ru)){
                     System.out.println("Ingrese Nombre de la película para arrendar: ");
-                    String Peli=MM.readLine();
+                    String nomPeli=MM.readLine();
+                    Película Peli = new Película(nomPeli," ",0,0,0,nomPeli.split(","),nomPeli.split(","));
                     System.out.println("Ingrese cuantos días van a arrendar la película: ");
                     int Dia=Integer.parseInt(MM.readLine());
                     System.out.println("Ingrese el precio del arriendo: ");
@@ -120,11 +121,11 @@ public static void Menu2(HashMap<Integer,Cliente> map,LinkedList<Película> list
                     for (int i = 0; i<lista.size();i++){
                         Arriendo arr = lista.get(i);
                         if (arr.getDevuelto()==false){
-                            System.out.println("Devolver " + arr.getPelícula() + "?\n 1- Si\n 2- No");
+                            System.out.println("Devolver " + arr.getPelículaArrendada().getNombre() + "?\n 1- Si\n 2- No");
                             int opcion2=Integer.parseInt(MM.readLine());
                             if (opcion2 == 1){
                                 arr.devolver();
-                                System.out.println(arr.getPelícula() + " devuelto");
+                                System.out.println(arr.getPelículaArrendada().getNombre() + " devuelto");
                             }
                         }
                         

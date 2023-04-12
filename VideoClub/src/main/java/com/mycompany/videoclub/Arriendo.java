@@ -3,33 +3,26 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class Arriendo {
-    private String películaArrendada;
+    private Película películaArrendada;
     private LocalDate fechaArriendo;
     private long díasArriendo;
     private int precioArriendo;
     private boolean devuelto;
     private long díasAtraso;
     
-    public Arriendo(String película, long días, int precio){
+    public Arriendo(Película película, long días, int precio){
         películaArrendada = película;
         fechaArriendo = LocalDate.now();
         díasArriendo = días;
         precioArriendo = precio;
         devuelto = false;
     }
-    public Arriendo(String película, String fecha, long días, int precio){
+    public Arriendo(Película película, String fecha, long días, int precio){
         películaArrendada = película;
         fechaArriendo = LocalDate.parse(fecha); // fecha debe ser 'YYYY-MM-DD'
         díasArriendo = días;
         precioArriendo = precio;
         devuelto = false;
-    }
-    public String getPelícula(){
-        return películaArrendada;
-    }
-    
-    public void setPelícula(String película){
-        películaArrendada = película;
     }
     
     public LocalDate getFechaArriendo(){
@@ -77,11 +70,11 @@ public class Arriendo {
         return devuelto;
     }
 
-    public String getPelículaArrendada() {
+    public Película getPelículaArrendada() {
         return películaArrendada;
     }
 
-    public void setPelículaArrendada(String películaArrendada) {
+    public void setPelículaArrendada(Película películaArrendada) {
         this.películaArrendada = películaArrendada;
     }
 
@@ -118,7 +111,7 @@ public class Arriendo {
     }
     
     public void print(){
-        System.out.println("Pelicula arrendada: " + películaArrendada);
+        System.out.println("Pelicula arrendada: " + películaArrendada.getNombre());
         System.out.println("Fecha de arriendo: " + fechaArriendo.toString());
         System.out.println("Duración de arriendo: " + Long.toString(díasArriendo) + " días");
         System.out.println("Precio de arriendo: " + Integer.toString(precioArriendo));

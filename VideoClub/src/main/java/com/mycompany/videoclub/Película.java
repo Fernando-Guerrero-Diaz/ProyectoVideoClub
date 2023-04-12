@@ -3,7 +3,9 @@ package com.mycompany.videoclub;
 
 
 public class Película {
+
     private String id;
+    private String codigo;
     private String nombre;
     private String[] directores;
     //private String[] actoresPrincipales;
@@ -12,6 +14,8 @@ public class Película {
     private int votos;
     private int stock;
     private int arriendos;
+    private int cantVotos;
+    
 
 
     public Película(String id, String nombre, String[] directores, int puntuación, int stock, int arriendos, String[] géneros, int votos) {
@@ -23,6 +27,22 @@ public class Película {
         this.stock = stock;
         this.arriendos = arriendos;
         this.votos = votos;
+    }
+
+    public int getCantVotos() {
+        return cantVotos;
+    }
+
+    public void setCantVotos(int cantVotos) {
+        this.cantVotos = cantVotos;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
     
     
@@ -104,7 +124,6 @@ public class Película {
     public void setArriendos(int arriendos) {
         this.arriendos = arriendos;
     }
-
 
     public void print(){
         System.out.println("Nombre de Película: " + nombre);
