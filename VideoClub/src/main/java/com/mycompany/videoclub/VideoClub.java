@@ -22,22 +22,35 @@ public class VideoClub {
         Cliente c3 = new Cliente("XXDemon69SlayerXX", 25999999, "xxDSlaya@roblox.com");
                 //Creación por main de un historial de arriendos
         //Arriendos de Fernando Guerrero
-        Arriendo arr0 = new Arriendo("Shrek 2", 15, 2000);
+        String nomPeli= new String();
+        nomPeli = "Shrek 2";
+        Película Peli = new Película(nomPeli," ",0,0,0,nomPeli.split(","),nomPeli.split(","));
+        Arriendo arr0 = new Arriendo(Peli, 15, 2000);
         
-        Arriendo arr1 = new Arriendo("Joker", "2023-03-20", 6, 2000);
+        nomPeli = "Joker";
+        Peli = new Película(nomPeli," ",0,0,0,nomPeli.split(","),nomPeli.split(","));
+        Arriendo arr1 = new Arriendo(Peli, "2023-03-20", 6, 2000);
         arr1.devolver();
         arr1.devolver(1);
         
-        Arriendo arr2 = new Arriendo("Enter the Spiderverse", "2023-02-06", 10, 2000);
+        nomPeli = "Enter the Spiderverse";
+        Peli = new Película(nomPeli," ",0,0,0,nomPeli.split(","),nomPeli.split(","));
+        Arriendo arr2 = new Arriendo(Peli, "2023-02-06", 10, 2000);
         arr2.devolver();
         arr2.devolver(0);
         // Arriendos de John Smith
-        Arriendo arr3 = new Arriendo("2012", "2012-12-21", 2, 1500);
+        nomPeli = "2012";
+        Peli = new Película(nomPeli," ",0,0,0,nomPeli.split(","),nomPeli.split(","));
+        Arriendo arr3 = new Arriendo(Peli, "2012-12-21", 2, 1500);
         
         //Arriendos de XXDemon69SlayerXX
-        Arriendo arr4 = new Arriendo("Minions", 5, 2000);
+        nomPeli = "Minions";
+        Peli = new Película(nomPeli," ",0,0,0,nomPeli.split(","),nomPeli.split(","));
+        Arriendo arr4 = new Arriendo(Peli, 5, 2000);
         
-        Arriendo arr5 = new Arriendo("The Lego Movie", "2023-01-11", 4, 2000);
+        nomPeli = "The Lego Movie";
+        Peli = new Película(nomPeli," ",0,0,0,nomPeli.split(","),nomPeli.split(","));
+        Arriendo arr5 = new Arriendo(Peli, "2023-01-11", 4, 2000);
         arr5.devolver();
         arr5.devolver(7);
         
