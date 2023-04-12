@@ -7,13 +7,13 @@ public class VideoClub {
 
     public static void main(String[] args) throws IOException {
 
-        HashMap<Integer,Cliente> map = new HashMap();        
-        LinkedList<Película> listaPelícula =new LinkedList();
-        inicializador(map,listaPelícula);
+        HashMap<Integer,Cliente> mapaCliente = new HashMap();
+        HashMap<String,Película> mapaPelículas = CSVmanager.lecturaPelículas("Peliculas.csv");
+        //inicializador(map,listaPelícula);
  
-        Menu.Menu2(map,listaPelícula);
+        //Menu.Menu2(map,listaPelícula);
     }
-    
+   /* 
     public static void inicializador(HashMap<Integer,Cliente> map, LinkedList<Película> listaPelícula){
                 
         //Creación de clientes por Main
@@ -65,4 +65,5 @@ public class VideoClub {
         map.put(c2.getRut(),c2);
         map.put(c3.getRut(), c3);
     }
+*/
 }

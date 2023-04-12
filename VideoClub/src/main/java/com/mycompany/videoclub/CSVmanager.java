@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
  */
 public class CSVmanager {
     
-    public HashMap lecturaPelículas(String direcciónArchivo) throws FileNotFoundException {
+    public static HashMap lecturaPelículas(String direcciónArchivo) throws FileNotFoundException {
         HashMap<String,Película> mapaPelículas = new HashMap();
         File archivoPelículas = new File(direcciónArchivo);
         Scanner lector = new Scanner(archivoPelículas);
