@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.videoclub;
-import java.util.LinkedList;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,19 +14,26 @@ import java.io.FileNotFoundException;
  */
 public class CSVmanager {
     
-    public LinkedList lecturaPelículas(String direcciónArchivo) throws FileNotFoundException {
-        LinkedList listaPelículas = new LinkedList();
+    public HashMap lecturaPelículas(String direcciónArchivo) throws FileNotFoundException {
+        HashMap<String,Película> mapaPelículas = new HashMap();
         File archivoPelículas = new File(direcciónArchivo);
         Scanner lector = new Scanner(archivoPelículas);
         lector.nextLine();
         while (lector.hasNextLine()){
             String dataLine = lector.nextLine();
             String[] dataArray = dataLine.split(",");
-            //Película peli = new Película(dataArray[0],dataArray[1],Float.parseFloat(dataArray[4]), Integer.parseInt(dataArray[5]), Integer.parseInt(dataArray[6]));
-            //peli.setActoresPrincipales(dataArray[2].split(";"));
-            //peli.setGéneros(dataArray[3].split(";"));
-            //listaPelículas.add(peli);
+            String id = dataArray[0];
+            String nombre=dataArray[1];
+            int puntuación = Integer.parseInt(dataArray[2]);
+            String[] géneros = dataArray[3].split(",");
+            int votos = Integer.parseInt(dataArray[4]);
+            String[] directores = dataArray[5].split(",");
+            int stock = Integer.parseInt(dataArray[6]);
+            int arriendos = Integer.parseInt(dataArray[7]);
+            Película peli = new Película(id, nombre,directores,puntuación,stock,arriendos,géneros, votos);
+
+            mapaPelículas.put(id,peli);
         }
-        return listaPelículas;
+        return mapaPelículas;
     }
 }

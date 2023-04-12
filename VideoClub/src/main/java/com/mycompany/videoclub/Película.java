@@ -3,23 +3,26 @@ package com.mycompany.videoclub;
 
 
 public class Película {
+    private String id;
     private String nombre;
-    private String director;
-    private String[] actoresPrincipales;
+    private String[] directores;
+    //private String[] actoresPrincipales;
     private String[] géneros;
-    private float puntuación;
+    private int puntuación;
+    private int votos;
     private int stock;
     private int arriendos;
 
 
-    public Película(String nombre, String director, float puntuación, int stock, int arriendos, String[] géneros, String[] actoresPrincipales) {
+    public Película(String id, String nombre, String[] directores, int puntuación, int stock, int arriendos, String[] géneros, int votos) {
+        this.id = id;
         this.nombre = nombre;
-        this.director = director;
-        this.actoresPrincipales = actoresPrincipales;
+        this.directores = directores;
         this.géneros = géneros;
         this.puntuación = puntuación;
         this.stock = stock;
         this.arriendos = arriendos;
+        this.votos = votos;
     }
     
     
@@ -31,14 +34,14 @@ public class Película {
         this.nombre = nombre;
     }
 
-    public String getDirector() {
-        return director;
+    public String[] getDirectores() {
+        return directores;
     }
 
-    public void setDirector(String director) {
-        this.director = director;
+    public void setDirectores(String[] directores) {
+        this.directores = directores;
     }
-
+    /*
     public String[] getActoresPrincipales() {
         return actoresPrincipales;
     }
@@ -46,7 +49,7 @@ public class Película {
     public void setActoresPrincipales(String[] actoresPrincipales) {
         this.actoresPrincipales = actoresPrincipales;
     }
-
+*/
     public String[] getGéneros() {
         return géneros;
     }
@@ -59,14 +62,37 @@ public class Película {
         return puntuación;
     }
 
-    public void setPuntuación(float puntuación) {
+    public void setPuntuación(int puntuación) {
         this.puntuación = puntuación;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getVotos() {
+        return votos;
+    }
+
+    public void setVotos(int votos) {
+        this.votos = votos;
+    }
+
+    public boolean addVoto(int votacion){
+        if(votacion<0 || votacion >100) return false;
+        puntuación = (puntuación*votos + votacion)/(votos +1);
+        votos++;
+        return true;
+    }
+    
     public int getStock() {
         return stock;
     }
-
+    
     public void setStock(int stock) {
         this.stock = stock;
     }
@@ -82,13 +108,14 @@ public class Película {
 
     public void print(){
         System.out.println("Nombre de Película: " + nombre);
-        System.out.println("Director: " + director);
-        for (int i = 0; i<actoresPrincipales.length;i++ ){
-            System.out.print(actoresPrincipales[i]);
+        System.out.print("Directores: " + directores[0]);
+        for (int i = 1; i<directores.length;i++ ){
+            System.out.print(", " + directores[i]);
         }
         System.out.println("");
-        for (int i = 0; i<géneros.length;i++ ){
-            System.out.print(géneros[i]);
+        System.out.print("Géneros: " + géneros[0]);
+        for (int i = 1; i<géneros.length;i++ ){
+            System.out.print(", " + géneros[i]);
         }
         System.out.println("");
         System.out.println("Puntuación: " + Float.toString(puntuación));
