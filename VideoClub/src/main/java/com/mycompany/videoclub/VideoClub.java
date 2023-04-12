@@ -8,7 +8,7 @@ public class VideoClub {
     public static void main(String[] args) throws IOException {
 
         HashMap<Integer,Cliente> mapaCliente = new HashMap();
-        HashMap<String,Película> mapaPelículas = CSVmanager.lecturaPelículas("Peliculas.csv");
+        HashMap<String,Película> mapaPelículas = CSVmanager.lecturaPelículas("Files/Peliculas.csv");
         //inicializador(map,listaPelícula);
  
         //Menu.Menu2(map,listaPelícula);
