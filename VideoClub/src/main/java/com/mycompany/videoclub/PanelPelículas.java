@@ -13,8 +13,9 @@ public class PanelPelículas extends javax.swing.JPanel {
     /**
      * Creates new form PanelPelículas
      */
-    public PanelPelículas() {
+    public PanelPelículas(CollectionManager mc) {
         initComponents();
+        collectionManager = mc;
     }
 
     /**
@@ -156,7 +157,8 @@ public class PanelPelículas extends javax.swing.JPanel {
 
     private void botonAgregarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarPeliculaActionPerformed
         Película película = new Película(fieldId.getText(), fieldTitulo.getText(), fieldDirectores.getText().split(","), Integer.valueOf(fieldPuntuacion.getText()), Integer.valueOf(fieldStock.getText()), 0, fieldGeneros.getText().split(","), Integer.valueOf(fieldVotos.getText()));
-        
+        collectionManager.agregarPelícula(película);
+        película.print();
     }//GEN-LAST:event_botonAgregarPeliculaActionPerformed
 
 
@@ -179,4 +181,5 @@ public class PanelPelículas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
+    private CollectionManager collectionManager;
 }

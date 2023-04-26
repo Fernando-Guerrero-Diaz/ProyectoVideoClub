@@ -15,8 +15,9 @@ public class VideoClubFrame extends javax.swing.JFrame {
     /**
      * Creates new form VideoClubFrame
      */
-    public VideoClubFrame() {
+    public VideoClubFrame(CollectionManager cm) {
         initComponents();
+        collectionManager = cm;
     }
 
     /**
@@ -131,7 +132,7 @@ public class VideoClubFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_botonHomeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PanelPelículas panelPeliculas = new PanelPelículas();
+        PanelPelículas panelPeliculas = new PanelPelículas(collectionManager);
         panelPeliculas.setSize(800,514);
         panelPeliculas.setLocation(0,0);
         panelVacio.removeAll();
@@ -170,7 +171,8 @@ public class VideoClubFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VideoClubFrame().setVisible(true);
+                CollectionManager cm = new CollectionManager();
+                new VideoClubFrame(cm).setVisible(true);
             }
         });
     }
@@ -183,4 +185,5 @@ public class VideoClubFrame extends javax.swing.JFrame {
     private javax.swing.JPanel panelMenuPrincipal;
     private javax.swing.JPanel panelVacio;
     // End of variables declaration//GEN-END:variables
+    private CollectionManager collectionManager;
 }

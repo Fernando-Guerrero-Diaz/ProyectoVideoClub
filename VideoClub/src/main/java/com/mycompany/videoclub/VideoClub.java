@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class VideoClub {
-
+    
     public static void main(String[] args) throws IOException {
+        CollectionManager collectionManager = new CollectionManager();
 
-        HashMap<Integer,Cliente> mapaCliente = new HashMap();
-        HashMap<String,Película> mapaPelículas = CSVmanager.lecturaPelículas("Files/Peliculas.csv");
         //inicializador(map,listaPelícula);
- 
+        VideoClubFrame menuPrincipal = new VideoClubFrame(collectionManager);
+        menuPrincipal.setVisible(true);
         //Menu.Menu2(map,listaPelícula);
     }
    /* 

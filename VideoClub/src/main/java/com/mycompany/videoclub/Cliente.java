@@ -15,12 +15,6 @@ public class Cliente {
         this.email = email;
         registroArriendos = new LinkedList();
     }
-        public Cliente(String nombre, int rut, String email, LinkedList<Arriendo> arriendos){
-        this.nombre = nombre;
-        this.rut = rut;
-        this.email = email;
-        registroArriendos = arriendos;
-    }
     
     public String getNombre() {
         return nombre;
@@ -46,13 +40,6 @@ public class Cliente {
         this.email = email;
     }
 
-    public LinkedList<Arriendo> getRegistroArriendos() {
-        return registroArriendos;
-    }
-
-    public void setRegistroArriendos(LinkedList<Arriendo> registroArriendos) {
-        this.registroArriendos = registroArriendos;
-    }
     
     public void AddFirstArriendo(Arriendo nuevoArriendo){
         registroArriendos.addFirst(nuevoArriendo);
