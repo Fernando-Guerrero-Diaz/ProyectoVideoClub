@@ -34,7 +34,7 @@ public class VideoClubFrame extends javax.swing.JFrame {
         panelMenuPrincipal = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        botonArriendos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,7 +54,12 @@ public class VideoClubFrame extends javax.swing.JFrame {
 
         jButton2.setText("CLIENTES");
 
-        jButton3.setText("ARRIENDOS");
+        botonArriendos.setText("ARRIENDOS");
+        botonArriendos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonArriendosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelMenuPrincipalLayout = new javax.swing.GroupLayout(panelMenuPrincipal);
         panelMenuPrincipal.setLayout(panelMenuPrincipalLayout);
@@ -63,12 +68,9 @@ public class VideoClubFrame extends javax.swing.JFrame {
             .addGroup(panelMenuPrincipalLayout.createSequentialGroup()
                 .addContainerGap(344, Short.MAX_VALUE)
                 .addGroup(panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelMenuPrincipalLayout.createSequentialGroup()
-                        .addGroup(panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton2)))
-                    .addGroup(panelMenuPrincipalLayout.createSequentialGroup()
-                        .addComponent(jButton1)))
+                    .addComponent(botonArriendos)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
                 .addContainerGap(331, Short.MAX_VALUE))
         );
         panelMenuPrincipalLayout.setVerticalGroup(
@@ -79,7 +81,7 @@ public class VideoClubFrame extends javax.swing.JFrame {
                 .addGap(117, 117, 117)
                 .addComponent(jButton2)
                 .addGap(86, 86, 86)
-                .addComponent(jButton3)
+                .addComponent(botonArriendos)
                 .addContainerGap(131, Short.MAX_VALUE))
         );
 
@@ -141,6 +143,16 @@ public class VideoClubFrame extends javax.swing.JFrame {
         panelVacio.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void botonArriendosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonArriendosActionPerformed
+        panelMenuArriendos panelArriendo = new panelMenuArriendos(collectionManager);
+        panelArriendo.setSize(800,514);
+        panelArriendo.setLocation(0,0);
+        panelVacio.removeAll();
+        panelVacio.add(panelArriendo,BorderLayout.CENTER);
+        panelVacio.revalidate();
+        panelVacio.repaint();
+    }//GEN-LAST:event_botonArriendosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -178,10 +190,10 @@ public class VideoClubFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonArriendos;
     private javax.swing.JButton botonHome;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel panelMenuPrincipal;
     private javax.swing.JPanel panelVacio;
     // End of variables declaration//GEN-END:variables

@@ -35,7 +35,22 @@ public class CollectionManager {
         */
         mapaCliente= new HashMap<Integer,Cliente>();
     }
-    
+    public Cliente buscarCliente(int rut){
+        for ( Integer key: mapaCliente.keySet()){
+            if (mapaCliente.get(key).getRut() == rut){
+                return mapaCliente.get(key);
+            }
+        }
+        return null;
+    }
+    public Película buscarPelicula(String id){
+        for ( String key: mapaPelículas.keySet()){
+            if (mapaPelículas.get(key).getId().equals(id)){
+                return mapaPelículas.get(key);
+            }
+        }
+        return null;
+    }
     public void agregarPelícula(Película peli){
         mapaPelículas.put(peli.getId(),peli);
     }
