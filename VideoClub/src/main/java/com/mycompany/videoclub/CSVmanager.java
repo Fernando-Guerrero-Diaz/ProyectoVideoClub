@@ -42,6 +42,27 @@ public class CSVmanager {
         return mapaPelículas;
     }
     
+        public HashMap lecturaClientes(String direcciónArchivo) throws FileNotFoundException {
+        HashMap<Integer,Cliente> mapaClientes = new HashMap();
+        File archivoClientes = new File(direcciónArchivo);
+        Scanner lector = new Scanner(archivoClientes);
+        lector.nextLine();
+        while (lector.hasNextLine()){
+            String dataLine = lector.nextLine();
+            String[] dataArray = dataLine.split(",");
+            int rut = Integer.parseInt(dataArray[0]);
+            String nombre=dataArray[1];
+            String email = dataArray[2];
+            Cliente cliente = new Cliente(nombre,rut,email);
+
+            mapaClientes.put(rut,cliente);
+        }
+        return mapaClientes;
+    }
+    public String getDatalineCliente(Cliente cliente){
+        String dataline = Integer.toString(cliente.getRut()) + ";" + cliente.getNombre() + ";" + cliente.getEmail();
+        return dataline;
+    }
     public String getDatalinePelicula(Película peli){
         String generos = stringArrayConcatenation(peli.getGéneros());
         String directores = stringArrayConcatenation(peli.getDirectores());
@@ -69,6 +90,18 @@ public class CSVmanager {
         for (String id: collectionManager.getSetIDPelículas()){
             Película peli = collectionManager.buscarPelicula(id);
             String dataline = getDatalinePelicula(peli);
+            escritor.write(dataline);
+            escritor.newLine();   
+            }
+    }
+        public void escribirClientes(String direcciónArchivo) throws IOException {
+        
+        BufferedWriter escritor = new BufferedWriter(new FileWriter(direcciónArchivo, false));
+        escritor.write("Rut;Nombre;email");
+        escritor.newLine();
+        for (int rut: collectionManager.getSetRutClientes()){
+            Cliente cliente = collectionManager.buscarCliente(rut);
+            String dataline = getDatalineCliente(cliente);
             escritor.write(dataline);
             escritor.newLine();   
             }
