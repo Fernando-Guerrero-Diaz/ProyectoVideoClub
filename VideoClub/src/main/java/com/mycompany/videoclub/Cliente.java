@@ -41,11 +41,11 @@ public class Cliente {
     }
 
     
-    public void AddFirstArriendo(Arriendo nuevoArriendo){
+    public void addFirstArriendo(Arriendo nuevoArriendo){
         registroArriendos.addFirst(nuevoArriendo);
     }
     
-    public void AddLastArriendo(Arriendo nuevoArriendo){
+    public void addLastArriendo(Arriendo nuevoArriendo){
         registroArriendos.addLast(nuevoArriendo);
     }
     

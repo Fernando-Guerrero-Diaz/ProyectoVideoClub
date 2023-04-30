@@ -26,7 +26,7 @@ public class CSVmanager {
         lector.nextLine();
         while (lector.hasNextLine()){
             String dataLine = lector.nextLine();
-            String[] dataArray = dataLine.split(",");
+            String[] dataArray = dataLine.split(";");
             String id = dataArray[0];
             String nombre=dataArray[1];
             int puntuación = Integer.parseInt(dataArray[2]);
@@ -42,14 +42,14 @@ public class CSVmanager {
         return mapaPelículas;
     }
     
-        public HashMap lecturaClientes(String direcciónArchivo) throws FileNotFoundException {
+    public HashMap lecturaClientes(String direcciónArchivo) throws FileNotFoundException {
         HashMap<Integer,Cliente> mapaClientes = new HashMap();
         File archivoClientes = new File(direcciónArchivo);
         Scanner lector = new Scanner(archivoClientes);
         lector.nextLine();
         while (lector.hasNextLine()){
             String dataLine = lector.nextLine();
-            String[] dataArray = dataLine.split(",");
+            String[] dataArray = dataLine.split(";");
             int rut = Integer.parseInt(dataArray[0]);
             String nombre=dataArray[1];
             String email = dataArray[2];
@@ -59,6 +59,28 @@ public class CSVmanager {
         }
         return mapaClientes;
     }
+    public void lecturaArriendos(String direcciónArchivo) throws FileNotFoundException{
+        File archivoArriendos = new File(direcciónArchivo);
+        Scanner lector = new Scanner(archivoArriendos);
+        lector.nextLine();
+        while (lector.hasNextLine()){
+            String dataLine = lector.nextLine();
+            String[] dataArray = dataLine.split(",");
+            int rut = Integer.parseInt(dataArray[0]);
+            String id=dataArray[1];
+            String fecha = dataArray[2];
+            long díasArriendo = Long.parseLong(dataArray[3]);
+            int precio = Integer.parseInt(dataArray[4]);
+            boolean estado = (dataArray[5].equals("devuelto"));
+            long díasAtraso = Long.parseLong(dataArray[6]);
+            Cliente cliente = collectionManager.buscarCliente(rut);
+            Película peli = collectionManager.buscarPelicula(id);
+            if (cliente == null || peli == null) continue;
+            Arriendo nuevo = new Arriendo(peli,fecha,díasArriendo,precio,estado,díasAtraso);
+            cliente.addLastArriendo(nuevo);
+        }
+    }
+    
     public String getDatalineCliente(Cliente cliente){
         String dataline = Integer.toString(cliente.getRut()) + ";" + cliente.getNombre() + ";" + cliente.getEmail();
         return dataline;
@@ -69,7 +91,10 @@ public class CSVmanager {
         String dataline = peli.getId() + ";" + peli.getNombre() + ";" + Integer.toString(peli.getPuntuación()) + generos + ";" + Integer.toString(peli.getCantVotos()) + ";" + directores + ";" + Integer.toString(peli.getStock()) + ";" + Integer.toString(peli.getArriendos()); 
         return dataline;
     }
-    
+    public String getDatalineArriendo(Arriendo arriendo, int rut){
+        String dataline = Integer.toString(rut) + ";" + Arrie;
+        return dataline;
+    }
     public String stringArrayConcatenation(String[] stringArray){
         
         int arraySize = stringArray.length;
@@ -94,13 +119,26 @@ public class CSVmanager {
             escritor.newLine();   
             }
     }
-        public void escribirClientes(String direcciónArchivo) throws IOException {
+    public void escribirClientes(String direcciónArchivo) throws IOException {
         
         BufferedWriter escritor = new BufferedWriter(new FileWriter(direcciónArchivo, false));
         escritor.write("Rut;Nombre;email");
         escritor.newLine();
         for (int rut: collectionManager.getSetRutClientes()){
             Cliente cliente = collectionManager.buscarCliente(rut);
+            String dataline = getDatalineCliente(cliente);
+            escritor.write(dataline);
+            escritor.newLine();   
+            }
+    }
+    public void escribirArriendos(String direcciónArchivo) throws IOException {
+        
+        BufferedWriter escritor = new BufferedWriter(new FileWriter(direcciónArchivo, false));
+        escritor.write("Rut Cliente;ID Pelicula;Fecha Arriendo(YYYY-MM-DD);Dias Arriendo;PrecioArriendo;Estado;DiasAtraso");
+        escritor.newLine();
+        for (int rut: collectionManager.getSetRutClientes()){
+            Cliente cliente = collectionManager.buscarCliente(rut);
+            Arriendo[] arriendos = cliente.ArriendosPendientes(false);
             String dataline = getDatalineCliente(cliente);
             escritor.write(dataline);
             escritor.newLine();   
