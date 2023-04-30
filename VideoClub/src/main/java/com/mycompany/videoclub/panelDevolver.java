@@ -55,6 +55,11 @@ public class panelDevolver extends javax.swing.JPanel {
         jLabel5.setText("Ingrese Rut Cliente:");
 
         botonDevolver.setText("Devolver");
+        botonDevolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonDevolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -105,9 +110,20 @@ public class panelDevolver extends javax.swing.JPanel {
         if (cliente == null){
             JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
         }
+        else fillComboBox(cliente);
         
 
     }//GEN-LAST:event_botonBuscarClienteActionPerformed
+
+    private void botonDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDevolverActionPerformed
+        if(comboBoxArriendosPendientes.getSelectedItem()==null){
+            JOptionPane.showMessageDialog(null, "No Hay Arriendos Seleccionados.", "Error", HEIGHT);
+        }
+        else {
+            int index = comboBoxArriendosPendientes.getSelectedIndex();
+            collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())).ArriendosPendientes(true)[index].devolver();
+        }
+    }//GEN-LAST:event_botonDevolverActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
