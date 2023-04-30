@@ -54,7 +54,17 @@ public class Cliente {
         System.out.println("Rut: " + Integer.toString(rut));
         System.out.println("Email:" + email);
     }
-    
+    public Arriendo[] ArriendosPendientes(boolean pendientes){
+        Arriendo array[] = new Arriendo[registroArriendos.size()];
+        int cont = 0;
+        for (int i = 0; i < registroArriendos.size();i++){
+            Arriendo arr = registroArriendos.get(i);
+            if (pendientes){
+                if (arr.getDevuelto() == false) array[cont] = arr; cont++;
+            }
+        }
+        return array;
+    }
     public void showArriendos(boolean pendientes){
         for (int i = 0; i < registroArriendos.size();i++){
             Arriendo arr = registroArriendos.get(i);

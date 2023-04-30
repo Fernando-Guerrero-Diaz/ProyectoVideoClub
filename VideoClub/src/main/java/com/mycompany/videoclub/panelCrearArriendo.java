@@ -132,7 +132,9 @@ public class panelCrearArriendo extends javax.swing.JPanel {
         if (cliente == null){
             JOptionPane.showMessageDialog(null, "Pelicula Inexistente.", "Error", HEIGHT);
         }
-        Arriendo nuevo = new Arriendo()
+        Arriendo nuevo = new Arriendo(peli,Long.valueOf(fieldDias.getText()),Integer.valueOf(fieldPrecio.getText()));
+        cliente.AddFirstArriendo(nuevo);
+        
     }//GEN-LAST:event_botonCrearArriendoActionPerformed
 
 
