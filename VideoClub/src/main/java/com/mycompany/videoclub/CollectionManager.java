@@ -26,17 +26,19 @@ public class CollectionManager {
                 System.out.println("No se encuentra archivo,");
                 mapaPelículas = new HashMap<String,Película>();
                 }
-        
-        //mapaPelículas = new HashMap<String,Película>();
-        
         try{
             mapaCliente = csv_manager.lecturaClientes("Files/Clientes.csv");
             System.out.println("Clientes Leídos");
         }catch(FileNotFoundException f){
             mapaCliente= new HashMap<Integer,Cliente>();
         }
+        try {
+            csv_manager.lecturaArriendos("Files/Arriendos.csv");
+            System.out.println("Arriendos Leídos");
+        }catch(FileNotFoundException g){
+            System.out.println("No se puede leer arriendos");
+        }
         
-        //mapaCliente= new HashMap<Integer,Cliente>();
     }
     public Cliente buscarCliente(int rut){
         for ( Integer key: mapaCliente.keySet()){

@@ -66,7 +66,7 @@ public class CSVmanager {
         lector.nextLine();
         while (lector.hasNextLine()){
             String dataLine = lector.nextLine();
-            String[] dataArray = dataLine.split(",");
+            String[] dataArray = dataLine.split(";");
             int rut = Integer.parseInt(dataArray[0]);
             String id=dataArray[1];
             String fecha = dataArray[2];
