@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
+import java.time.LocalDate;
 /**
  *
  * @author Sulfu
@@ -92,7 +93,10 @@ public class CSVmanager {
         return dataline;
     }
     public String getDatalineArriendo(Arriendo arriendo, int rut){
-        String dataline = Integer.toString(rut) + ";" + Arrie;
+        String estado;
+        if (arriendo.getDevuelto()) estado = "devuelto";
+        else estado = "no devuelto";
+        String dataline = Integer.toString(rut) + ";" + arriendo.getPelículaArrendada().getNombre() + ";" + arriendo.getFechaArriendo().toString() + ";" + Long.toString(arriendo.getDíasArriendo()) + ";" + Integer.toString(arriendo.getPrecioArriendo())+ ";" + estado + ";" + Long.toString(arriendo.díasDeAtraso());
         return dataline;
     }
     public String stringArrayConcatenation(String[] stringArray){
@@ -139,9 +143,11 @@ public class CSVmanager {
         for (int rut: collectionManager.getSetRutClientes()){
             Cliente cliente = collectionManager.buscarCliente(rut);
             Arriendo[] arriendos = cliente.ArriendosPendientes(false);
-            String dataline = getDatalineCliente(cliente);
-            escritor.write(dataline);
-            escritor.newLine();   
+            for(Arriendo arr:arriendos){
+                String dataline = getDatalineArriendo(arr,rut);
+                escritor.write(dataline);
+                escritor.newLine();   
+                }
             }
     }
 }
