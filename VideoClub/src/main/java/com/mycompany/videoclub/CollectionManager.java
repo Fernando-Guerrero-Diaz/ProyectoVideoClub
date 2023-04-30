@@ -7,6 +7,7 @@ package com.mycompany.videoclub;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Set;
+import java.io.IOException;
 
 /**
  *
@@ -59,11 +60,23 @@ public class CollectionManager {
     public void agregarPelícula(Película peli){
         mapaPelículas.put(peli.getId(),peli);
     }
+    public void agregarCliente(Cliente cc){
+        mapaCliente.put(cc.getRut(), cc);
+    }
     
     public Set<String> getSetIDPelículas(){
         return mapaPelículas.keySet();
     }
     public Set<Integer> getSetRutClientes(){
         return mapaCliente.keySet();
+    }
+    public void escrituraEnCSV(){
+        try{
+        csv_manager.escribirPelículas("Files/Peliculas.csv");
+        csv_manager.escribirClientes("Files/Clientes.csv");
+        csv_manager.escribirArriendos("Files/Arriendos.csv");
+        }catch(IOException e){
+            System.out.println("Error en escritura");
+        }
     }
 }

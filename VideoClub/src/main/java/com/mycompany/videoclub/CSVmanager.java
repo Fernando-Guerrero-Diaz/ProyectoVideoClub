@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.time.LocalDate;
+import java.io.PrintWriter;
 /**
  *
  * @author Sulfu
@@ -113,7 +114,7 @@ public class CSVmanager {
     
     public void escribirPelículas(String direcciónArchivo) throws IOException {
         
-        BufferedWriter escritor = new BufferedWriter(new FileWriter(direcciónArchivo, false));
+        BufferedWriter escritor = new BufferedWriter(new FileWriter(direcciónArchivo));
         escritor.write("Const;Title;IMDb Rating;Genres;Num Votes;Directors;Stock;Arriendos");
         escritor.newLine();
         for (String id: collectionManager.getSetIDPelículas()){
@@ -122,10 +123,11 @@ public class CSVmanager {
             escritor.write(dataline);
             escritor.newLine();   
             }
+        escritor.close();
     }
     public void escribirClientes(String direcciónArchivo) throws IOException {
         
-        BufferedWriter escritor = new BufferedWriter(new FileWriter(direcciónArchivo, false));
+        BufferedWriter escritor = new BufferedWriter(new FileWriter(direcciónArchivo));
         escritor.write("Rut;Nombre;email");
         escritor.newLine();
         for (int rut: collectionManager.getSetRutClientes()){
@@ -134,20 +136,22 @@ public class CSVmanager {
             escritor.write(dataline);
             escritor.newLine();   
             }
+        escritor.close();
     }
     public void escribirArriendos(String direcciónArchivo) throws IOException {
         
-        BufferedWriter escritor = new BufferedWriter(new FileWriter(direcciónArchivo, false));
-        escritor.write("Rut Cliente;ID Pelicula;Fecha Arriendo(YYYY-MM-DD);Dias Arriendo;PrecioArriendo;Estado;DiasAtraso");
-        escritor.newLine();
+        PrintWriter escritor = new PrintWriter(new FileWriter(direcciónArchivo));
+        escritor.print("Rut Cliente;ID Pelicula;Fecha Arriendo(YYYY-MM-DD);Dias Arriendo;PrecioArriendo;Estado;DiasAtraso");
+        escritor.println();
         for (int rut: collectionManager.getSetRutClientes()){
             Cliente cliente = collectionManager.buscarCliente(rut);
             Arriendo[] arriendos = cliente.ArriendosPendientes(false);
             for(Arriendo arr:arriendos){
                 String dataline = getDatalineArriendo(arr,rut);
-                escritor.write(dataline);
-                escritor.newLine();   
+                escritor.print(dataline);
+                escritor.println();   
                 }
             }
+        escritor.close();
     }
 }
