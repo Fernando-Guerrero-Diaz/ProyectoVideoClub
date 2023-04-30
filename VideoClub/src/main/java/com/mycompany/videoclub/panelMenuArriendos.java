@@ -31,7 +31,7 @@ public class panelMenuArriendos extends javax.swing.JPanel {
 
         botonCrearArriendo = new javax.swing.JButton();
         botonDevolverArriendo = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        botonMostrarArriendos = new javax.swing.JButton();
         panelContent = new javax.swing.JPanel();
 
         botonCrearArriendo.setText("Crear Arriendo");
@@ -48,7 +48,12 @@ public class panelMenuArriendos extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setText("Mostrar Arriendos");
+        botonMostrarArriendos.setText("Mostrar Arriendos");
+        botonMostrarArriendos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMostrarArriendosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
         panelContent.setLayout(panelContentLayout);
@@ -70,7 +75,7 @@ public class panelMenuArriendos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botonDevolverArriendo, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                     .addComponent(botonCrearArriendo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botonMostrarArriendos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -82,7 +87,7 @@ public class panelMenuArriendos extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(botonDevolverArriendo)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(botonMostrarArriendos)
                 .addContainerGap(340, Short.MAX_VALUE))
             .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -108,11 +113,21 @@ public class panelMenuArriendos extends javax.swing.JPanel {
         panelContent.repaint();
     }//GEN-LAST:event_botonDevolverArriendoActionPerformed
 
+    private void botonMostrarArriendosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarArriendosActionPerformed
+        panelMostrarArriendos panelMostrar = new panelMostrarArriendos(collectionManager);
+        panelMostrar.setSize(623,514);
+        panelMostrar.setLocation(0,0);
+        panelContent.removeAll();
+        panelContent.add(panelMostrar,BorderLayout.CENTER);
+        panelContent.revalidate();
+        panelContent.repaint();
+    }//GEN-LAST:event_botonMostrarArriendosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCrearArriendo;
     private javax.swing.JButton botonDevolverArriendo;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton botonMostrarArriendos;
     private javax.swing.JPanel panelContent;
     // End of variables declaration//GEN-END:variables
 }
