@@ -17,12 +17,13 @@ public class Arriendo {
         precioArriendo = precio;
         devuelto = false;
     }
-    public Arriendo(Película película, String fecha, long días, int precio){
+    public Arriendo(Película película, String fecha, long días, int precio, boolean status, long atraso){
         películaArrendada = película;
         fechaArriendo = LocalDate.parse(fecha); // fecha debe ser 'YYYY-MM-DD'
         díasArriendo = días;
         precioArriendo = precio;
-        devuelto = false;
+        devuelto = status;
+        díasAtraso = atraso;
     }
     
     public LocalDate getFechaArriendo(){
@@ -47,15 +48,9 @@ public class Arriendo {
     public void setDíasArriendo(long días){
         díasArriendo = días;
     }
-    public void setAtraso(long atraso){
-        díasAtraso = atraso;
-    }   
+
     public int getPrecioArriendo() {
         return precioArriendo;
-    }
-    public void devolver(long atraso){
-        díasAtraso = atraso;
-        devuelto = true;
     }
 
     public void setDíasAtraso(long díasAtraso) {
