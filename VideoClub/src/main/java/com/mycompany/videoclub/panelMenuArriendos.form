@@ -21,7 +21,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="botonDevolverArriendo" pref="145" max="32767" attributes="0"/>
                   <Component id="botonCrearArriendo" max="32767" attributes="0"/>
-                  <Component id="jButton3" max="32767" attributes="0"/>
+                  <Component id="botonMostrarArriendos" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="panelContent" min="-2" max="-2" attributes="0"/>
@@ -36,7 +36,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="botonDevolverArriendo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+              <Component id="botonMostrarArriendos" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="340" max="32767" attributes="0"/>
           </Group>
           <Component id="panelContent" alignment="0" max="32767" attributes="0"/>
@@ -60,10 +60,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonDevolverArriendoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="botonMostrarArriendos">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostrar Arriendos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonMostrarArriendosActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="panelContent">
 
