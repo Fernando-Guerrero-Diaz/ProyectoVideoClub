@@ -17,13 +17,23 @@ public class panelDevolver extends javax.swing.JPanel {
      */
     public panelDevolver(CollectionManager mc) {
         initComponents();
-        collectionManager = mc; 
+        collectionManager = mc;
     }
     public void fillComboBox(Cliente cliente){
+        try{
+        comboBoxArriendosPendientes.removeAllItems();
         Arriendo arr[] = cliente.ArriendosPendientes(true);
         for(int i=0; i<arr.length;i++){
             comboBoxArriendosPendientes.addItem(arr[i].getPelículaArrendada().getNombre());
         }
+        }
+        catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "No existen Arriendos sin devolver.", "Error", HEIGHT);
+            }
+        
+           
+        
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.

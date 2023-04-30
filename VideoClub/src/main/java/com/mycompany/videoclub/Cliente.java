@@ -60,7 +60,10 @@ public class Cliente {
         for (int i = 0; i < registroArriendos.size();i++){
             Arriendo arr = registroArriendos.get(i);
             if (pendientes){
-                if (arr.getDevuelto() == false) array[cont] = arr; cont++;
+                if (arr.getDevuelto() == false) {
+                    array[cont] = arr;
+                    cont++;
+                } 
             }
             else{
                 array[i] = arr; 
