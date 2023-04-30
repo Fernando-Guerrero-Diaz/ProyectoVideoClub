@@ -6,6 +6,7 @@ package com.mycompany.videoclub;
 
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  *
@@ -16,7 +17,7 @@ public class CollectionManager {
     private HashMap<String,Película> mapaPelículas;
     private CSVmanager csv_manager;
     public CollectionManager(){
-        csv_manager = new CSVmanager();
+        csv_manager = new CSVmanager(this);
         /*
         try{
             mapaPelículas = csv_manager.lecturaPelículas("Files/Peliculas.csv");
@@ -53,5 +54,9 @@ public class CollectionManager {
     }
     public void agregarPelícula(Película peli){
         mapaPelículas.put(peli.getId(),peli);
+    }
+    
+    public Set<String> getSetIDPelículas(){
+        return mapaPelículas.keySet();
     }
 }

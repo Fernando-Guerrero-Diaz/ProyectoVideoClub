@@ -7,13 +7,18 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.BufferedWriter;
 /**
  *
  * @author Sulfu
  */
 public class CSVmanager {
-    
+    private CollectionManager collectionManager;
+    public CSVmanager(CollectionManager cm){
+        collectionManager = cm;
+    }
     public HashMap lecturaPelículas(String direcciónArchivo) throws FileNotFoundException {
         HashMap<String,Película> mapaPelículas = new HashMap();
         File archivoPelículas = new File(direcciónArchivo);
@@ -54,5 +59,18 @@ public class CSVmanager {
         }
         
         return result;
+    }
+    
+    public void escribirPelículas(String direcciónArchivo) throws IOException {
+        
+        BufferedWriter escritor = new BufferedWriter(new FileWriter(direcciónArchivo, false));
+        escritor.write("Const;Title;IMDb Rating;Genres;Num Votes;Directors;Stock;Arriendos");
+        escritor.newLine();
+        for (String id: collectionManager.getSetIDPelículas()){
+            Película peli = collectionManager.buscarPelicula(id);
+            String dataline = getDatalinePelicula(peli);
+            escritor.write(dataline);
+            escritor.newLine();   
+            }
     }
 }
