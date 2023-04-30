@@ -36,4 +36,23 @@ public class CSVmanager {
         }
         return mapaPelículas;
     }
+    
+    public String getDatalinePelicula(Película peli){
+        String generos = stringArrayConcatenation(peli.getGéneros());
+        String directores = stringArrayConcatenation(peli.getDirectores());
+        String dataline = peli.getId() + ";" + peli.getNombre() + ";" + Integer.toString(peli.getPuntuación()) + generos + ";" + Integer.toString(peli.getCantVotos()) + ";" + directores + ";" + Integer.toString(peli.getStock()) + ";" + Integer.toString(peli.getArriendos()); 
+        return dataline;
+    }
+    
+    public String stringArrayConcatenation(String[] stringArray){
+        
+        int arraySize = stringArray.length;
+        if (arraySize < 1) return "";
+        String result = stringArray[0];
+        for (int i = 1; i < arraySize; i++){
+            result = result + ", "+stringArray[i];
+        }
+        
+        return result;
+    }
 }

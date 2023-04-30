@@ -5,7 +5,6 @@ package com.mycompany.videoclub;
 public class Película {
 
     private String id;
-    private String codigo;
     private String nombre;
     private String[] directores;
     //private String[] actoresPrincipales;
@@ -37,14 +36,6 @@ public class Película {
         this.cantVotos = cantVotos;
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-    
     
     public String getNombre() {
         return nombre;
@@ -78,7 +69,7 @@ public class Película {
         this.géneros = géneros;
     }
 
-    public float getPuntuación() {
+    public int getPuntuación() {
         return puntuación;
     }
 
