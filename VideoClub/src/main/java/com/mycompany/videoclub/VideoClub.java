@@ -9,8 +9,8 @@ public class VideoClub {
         CollectionManager collectionManager = new CollectionManager();
 
         //inicializador(map,listaPelícula);
-        VideoClubFrame menuPrincipal = new VideoClubFrame(collectionManager);
-        menuPrincipal.setVisible(true);
+        //VideoClubFrame menuPrincipal = new VideoClubFrame(collectionManager);
+        //menuPrincipal.setVisible(true);
         //Menu.Menu2(map,listaPelícula);
     }
    /* 

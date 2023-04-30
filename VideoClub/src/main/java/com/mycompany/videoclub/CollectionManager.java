@@ -18,23 +18,25 @@ public class CollectionManager {
     private CSVmanager csv_manager;
     public CollectionManager(){
         csv_manager = new CSVmanager(this);
-        /*
+        
         try{
             mapaPelículas = csv_manager.lecturaPelículas("Files/Peliculas.csv");
+            System.out.println("Peliculas leídas");
         }catch( FileNotFoundException e){
                 System.out.println("No se encuentra archivo,");
                 mapaPelículas = new HashMap<String,Película>();
                 }
-        */
-        mapaPelículas = new HashMap<String,Película>();
-        /*
+        
+        //mapaPelículas = new HashMap<String,Película>();
+        
         try{
             mapaCliente = csv_manager.lecturaClientes("Files/Clientes.csv");
+            System.out.println("Clientes Leídos");
         }catch(FileNotFoundException f){
             mapaCliente= new HashMap<Integer,Cliente>();
         }
-        */
-        mapaCliente= new HashMap<Integer,Cliente>();
+        
+        //mapaCliente= new HashMap<Integer,Cliente>();
     }
     public Cliente buscarCliente(int rut){
         for ( Integer key: mapaCliente.keySet()){
