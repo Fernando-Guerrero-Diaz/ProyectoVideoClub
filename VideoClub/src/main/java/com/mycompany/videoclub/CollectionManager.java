@@ -59,4 +59,7 @@ public class CollectionManager {
     public Set<String> getSetIDPelículas(){
         return mapaPelículas.keySet();
     }
+    public Set<Integer> getSetRutClientes(){
+        return mapaCliente.keySet();
+    }
 }
