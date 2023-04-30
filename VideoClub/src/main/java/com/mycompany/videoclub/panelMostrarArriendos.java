@@ -4,6 +4,8 @@
  */
 package com.mycompany.videoclub;
 
+import static java.awt.image.ImageObserver.HEIGHT;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -110,8 +112,30 @@ public class panelMostrarArriendos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonMostrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarClienteActionPerformed
-        Cliente cliente = collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText()));
-        String[] columnas = new String[6];
+        if(fieldRut.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Ingrese Un Cliente.", "Error", HEIGHT);
+        }
+        else{
+            Cliente cliente = collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText()));
+            if(cliente == null){
+                JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
+            }
+            else{
+                String[] columnas = new String[6];
+                Arriendo arr[] = cliente.ArriendosPendientes(false);
+                for(int i = 0;i<arr.length;i++){
+                    columnas[0] = arr[i].getPelículaArrendada().getNombre();
+                    columnas[1] = arr[i].getFechaArriendo().toString();
+                    columnas[2] = String.valueOf(arr[i].getDíasArriendo());
+                    columnas[3] = String.valueOf(arr[i].getPrecioArriendo());
+                    if (arr[i].getDevuelto()==true){
+                        columnas[4] = "Devuelto";
+                    }
+                    else columnas[4] = "No Devuelto";
+                    columnas[5] = String.valueOf(arr[i].getDíasAtraso());
+                }
+            }
+        }
         
         
     }//GEN-LAST:event_botonMostrarClienteActionPerformed

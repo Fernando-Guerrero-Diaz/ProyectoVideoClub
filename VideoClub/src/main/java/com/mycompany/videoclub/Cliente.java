@@ -62,9 +62,13 @@ public class Cliente {
             if (pendientes){
                 if (arr.getDevuelto() == false) array[cont] = arr; cont++;
             }
+            else{
+                array[i] = arr; 
+            }
         }
         return array;
     }
+    
     public void showArriendos(boolean pendientes){
         for (int i = 0; i < registroArriendos.size();i++){
             Arriendo arr = registroArriendos.get(i);
