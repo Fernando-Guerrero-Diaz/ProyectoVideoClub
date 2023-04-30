@@ -4,6 +4,9 @@
  */
 package com.mycompany.videoclub;
 
+import static java.awt.image.ImageObserver.HEIGHT;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author njorg
@@ -87,7 +90,7 @@ public class panelCrearArriendo extends javax.swing.JPanel {
                                     .addComponent(fieldPrecio)
                                     .addComponent(fieldDias)
                                     .addComponent(fieldId, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
-                            .addComponent(botonCrearArriendo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(botonCrearArriendo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(139, 139, 139))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,7 +124,15 @@ public class panelCrearArriendo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonCrearArriendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearArriendoActionPerformed
-        collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText()));
+        Cliente cliente = collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText()));
+        if (cliente == null){
+            JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
+        }
+        Película peli = collectionManager.buscarPelicula(fieldId.getText());
+        if (cliente == null){
+            JOptionPane.showMessageDialog(null, "Pelicula Inexistente.", "Error", HEIGHT);
+        }
+        Arriendo nuevo = new Arriendo()
     }//GEN-LAST:event_botonCrearArriendoActionPerformed
 
 
