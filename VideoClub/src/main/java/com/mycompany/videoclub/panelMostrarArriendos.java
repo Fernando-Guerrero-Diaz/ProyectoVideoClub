@@ -18,9 +18,7 @@ public class panelMostrarArriendos extends javax.swing.JPanel {
     /**
      * Creates new form panelMostrarArriendos
      */
-    public panelMostrarArriendos(CollectionManager mc) {
-        initComponents();
-        collectionManager = mc;
+    public void crearTabla(){
         modelo = new DefaultTableModel();
         modelo.addColumn("Pelicula");
         modelo.addColumn("Fecha");
@@ -29,6 +27,11 @@ public class panelMostrarArriendos extends javax.swing.JPanel {
         modelo.addColumn("Estado");
         modelo.addColumn("Dias Atraso");
         tablaArriendos.setModel(modelo);
+    }
+    public panelMostrarArriendos(CollectionManager mc) {
+        initComponents();
+        collectionManager = mc;
+        crearTabla();
     }
 
     /**
@@ -121,6 +124,7 @@ public class panelMostrarArriendos extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
             }
             else{
+                crearTabla();
                 String[] columnas = new String[6];
                 Arriendo arr[] = cliente.ArriendosPendientes(false);
                 for(int i = 0;i<arr.length;i++){
@@ -133,6 +137,7 @@ public class panelMostrarArriendos extends javax.swing.JPanel {
                     }
                     else columnas[4] = "No Devuelto";
                     columnas[5] = String.valueOf(arr[i].getDíasAtraso());
+                    modelo.addRow(columnas);
                 }
             }
         }

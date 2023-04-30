@@ -35,6 +35,7 @@ public class VideoClubFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         botonArriendos = new javax.swing.JButton();
+        botonGuardarYSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,6 +105,13 @@ public class VideoClubFrame extends javax.swing.JFrame {
                     .addComponent(panelMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        botonGuardarYSalir.setText("GUARDAR Y SALIR");
+        botonGuardarYSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGuardarYSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,7 +119,9 @@ public class VideoClubFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addComponent(botonHome)
-                .addContainerGap(644, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 446, Short.MAX_VALUE)
+                .addComponent(botonGuardarYSalir)
+                .addGap(71, 71, 71))
             .addComponent(panelVacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -119,7 +129,9 @@ public class VideoClubFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelVacio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(botonHome)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonHome)
+                    .addComponent(botonGuardarYSalir))
                 .addGap(24, 24, 24))
         );
 
@@ -152,6 +164,10 @@ public class VideoClubFrame extends javax.swing.JFrame {
         panelVacio.revalidate();
         panelVacio.repaint();
     }//GEN-LAST:event_botonArriendosActionPerformed
+
+    private void botonGuardarYSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarYSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_botonGuardarYSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,6 +207,7 @@ public class VideoClubFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonArriendos;
+    private javax.swing.JButton botonGuardarYSalir;
     private javax.swing.JButton botonHome;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
