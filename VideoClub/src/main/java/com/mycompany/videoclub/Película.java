@@ -133,4 +133,10 @@ public class Película {
         System.out.println("Arriendos: " + Integer.toString(arriendos));
 
     }
+    
+    public int VotacionTotal(){
+        int Ctotal;
+        Ctotal = puntuación*votos;
+        return Ctotal;
+    }
 }
