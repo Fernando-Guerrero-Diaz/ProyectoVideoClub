@@ -97,7 +97,7 @@ public class CSVmanager {
         String estado;
         if (arriendo.getDevuelto()) estado = "devuelto";
         else estado = "no devuelto";
-        String dataline = Integer.toString(rut) + ";" + arriendo.getPelículaArrendada().getNombre() + ";" + arriendo.getFechaArriendo().toString() + ";" + Long.toString(arriendo.getDíasArriendo()) + ";" + Integer.toString(arriendo.getPrecioArriendo())+ ";" + estado + ";" + Long.toString(arriendo.díasDeAtraso());
+        String dataline = Integer.toString(rut) + ";" + arriendo.getPelículaArrendada().getId() + ";" + arriendo.getFechaArriendo().toString() + ";" + Long.toString(arriendo.getDíasArriendo()) + ";" + Integer.toString(arriendo.getPrecioArriendo())+ ";" + estado + ";" + Long.toString(arriendo.díasDeAtraso());
         return dataline;
     }
     public String stringArrayConcatenation(String[] stringArray){
