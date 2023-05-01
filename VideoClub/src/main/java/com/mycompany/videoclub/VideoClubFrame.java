@@ -72,23 +72,23 @@ public class VideoClubFrame extends javax.swing.JFrame {
         panelMenuPrincipalLayout.setHorizontalGroup(
             panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuPrincipalLayout.createSequentialGroup()
-                .addContainerGap(344, Short.MAX_VALUE)
-                .addGroup(panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(348, Short.MAX_VALUE)
+                .addGroup(panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(botonArriendos)
-                    .addComponent(botonCliente)
-                    .addComponent(jButton1))
-                .addContainerGap(331, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                .addContainerGap(335, Short.MAX_VALUE))
         );
         panelMenuPrincipalLayout.setVerticalGroup(
             panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuPrincipalLayout.createSequentialGroup()
                 .addGap(88, 88, 88)
                 .addComponent(jButton1)
-                .addGap(117, 117, 117)
+                .addGap(110, 110, 110)
                 .addComponent(botonCliente)
-                .addGap(86, 86, 86)
+                .addGap(93, 93, 93)
                 .addComponent(botonArriendos)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelVacioLayout = new javax.swing.GroupLayout(panelVacio);

@@ -63,6 +63,9 @@ public class CollectionManager {
     public void agregarCliente(Cliente cc){
         mapaCliente.put(cc.getRut(), cc);
     }
+    public void eliminarCliente(int key){
+        mapaCliente.remove(key);
+    }
     
     public Set<String> getSetIDPelículas(){
         return mapaPelículas.keySet();

@@ -54,6 +54,11 @@ public class panelClientes extends javax.swing.JPanel {
         });
 
         botonEliminarCliente.setText("Eliminar Cliente");
+        botonEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -88,6 +93,16 @@ public class panelClientes extends javax.swing.JPanel {
         panelContent.revalidate();
         panelContent.repaint();
     }//GEN-LAST:event_botonCrearClienteActionPerformed
+
+    private void botonEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarClienteActionPerformed
+        panelEliminarCliente panelEliminar = new panelEliminarCliente(collectionManager);
+        panelEliminar.setSize(623,514);
+        panelEliminar.setLocation(0,0);
+        panelContent.removeAll();
+        panelContent.add(panelEliminar,BorderLayout.CENTER);
+        panelContent.revalidate();
+        panelContent.repaint();
+    }//GEN-LAST:event_botonEliminarClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
