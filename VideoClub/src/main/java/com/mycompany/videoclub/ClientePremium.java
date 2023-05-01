@@ -4,26 +4,22 @@
  */
 package com.mycompany.videoclub;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
 /**
  *
  * @author Freksel
  */
 public class ClientePremium extends Cliente{
     private int cantcupones;
-    private int descuento;
 
-public ClientePremium(int cantcupones, String nombre,int rut, String email){
-    super(nombre,rut,email);
+public ClientePremium(int cantcupones, String nombre,int rut, String email,String fechacliente){
+    super(nombre,rut,email,fechacliente);
     this.cantcupones = cantcupones;
+
 }
 
-public int getDescuento() {
-    return descuento;
-}
-
-public void setDescuento(int descuento) {
-    this.descuento = descuento;
-}
 
 public int getCantcupones() {
     return cantcupones;
@@ -38,6 +34,22 @@ public int usarCupones(){
         return 0;
     }
     cantcupones=cantcupones-1;
-    return descuento;
+    return calcularDescuento();
+}
+
+public int calcularDescuento(){
+    LocalDate díaHoy = LocalDate.now();
+    long diferenciaMeses = super.getFechaCliente().until(díaHoy, ChronoUnit.valueOf("MONTH"));
+    if(diferenciaMeses<6){
+        return 10;
+    }
+    else if(diferenciaMeses <12){
+            return 15;
+    }
+    else if(diferenciaMeses <18){
+        return 20;
+    }
+    return 25;
 }
 }
+
