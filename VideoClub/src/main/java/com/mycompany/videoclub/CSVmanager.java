@@ -90,7 +90,7 @@ public class CSVmanager {
     public String getDatalinePelicula(Película peli){
         String generos = stringArrayConcatenation(peli.getGéneros());
         String directores = stringArrayConcatenation(peli.getDirectores());
-        String dataline = peli.getId() + ";" + peli.getNombre() + ";" + Integer.toString(peli.getPuntuación()) + generos + ";" + Integer.toString(peli.getCantVotos()) + ";" + directores + ";" + Integer.toString(peli.getStock()) + ";" + Integer.toString(peli.getArriendos()); 
+        String dataline = peli.getId() + ";" + peli.getNombre() + ";" + Integer.toString(peli.getPuntuación()) + ";" + generos + ";" + Integer.toString(peli.getCantVotos()) + ";" + directores + ";" + Integer.toString(peli.getStock()) + ";" + Integer.toString(peli.getArriendos()); 
         return dataline;
     }
     public String getDatalineArriendo(Arriendo arriendo, int rut){
