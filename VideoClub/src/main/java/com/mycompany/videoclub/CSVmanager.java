@@ -51,13 +51,21 @@ public class CSVmanager {
         Scanner lector = new Scanner(archivoClientes);
         lector.nextLine();
         while (lector.hasNextLine()){
+            Cliente cliente;
             String dataLine = lector.nextLine();
             String[] dataArray = dataLine.split(";");
             int rut = Integer.parseInt(dataArray[0]);
             String nombre=dataArray[1];
             String email = dataArray[2];
-            Cliente cliente = new Cliente(nombre,rut,email);
-
+            String premStatus = dataArray[3];
+            String fecha = dataArray[4];
+            int cupones = Integer.parseInt(dataArray[5]);
+            if(premStatus.equals("si")){
+                cliente = new ClientePremium(cupones,nombre,rut,email,fecha);
+            }
+            else {
+                cliente = new Cliente(nombre,rut,email,fecha);
+            }
             mapaClientes.put(rut,cliente);
         }
         return mapaClientes;
@@ -85,7 +93,13 @@ public class CSVmanager {
     }
     
     public String getDatalineCliente(Cliente cliente){
-        String dataline = Integer.toString(cliente.getRut()) + ";" + cliente.getNombre() + ";" + cliente.getEmail();
+        String dataline;
+        if (cliente instanceof ClientePremium){
+            dataline = Integer.toString(cliente.getRut()) + ";" + cliente.getNombre() + ";" + cliente.getEmail() + ";si;" +cliente.getFechaCliente().toString() + ";" + cliente.getCantcupones();       
+        }
+        else{
+            dataline = Integer.toString(cliente.getRut()) + ";" + cliente.getNombre() + ";" + cliente.getEmail() + ";no;" +cliente.getFechaCliente().toString() + ";0";
+        }
         return dataline;
     }
     public String getDatalinePelicula(Película peli){

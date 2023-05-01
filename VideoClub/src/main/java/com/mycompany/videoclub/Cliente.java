@@ -34,6 +34,10 @@ public class Cliente {
         this.fechaCliente = fechaCliente;
     }
     
+    public int getCantcupones() {
+    return 0;
+}
+    
     public String getNombre() {
         return nombre;
     }
