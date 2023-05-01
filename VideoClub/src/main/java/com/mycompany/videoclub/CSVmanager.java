@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
+import java.io.PrintStream;
 import java.time.LocalDate;
 import java.io.PrintWriter;
 /**
@@ -153,5 +154,18 @@ public class CSVmanager {
                 }
             }
         escritor.close();
+    }
+    
+    public void reportePeliculas(String direcciónArchivo) throws IOException{
+        PrintStream ps = new PrintStream(new File(direcciónArchivo));
+        PrintStream console = System.out;
+        System.setOut(ps);
+        System.out.println("Películas registradas en el sistema");
+        for (String id: collectionManager.getSetIDPelículas()){
+            Película peli = collectionManager.buscarPelicula(id);
+            peli.print();
+            }
+        System.setOut(console);
+        
     }
 }
