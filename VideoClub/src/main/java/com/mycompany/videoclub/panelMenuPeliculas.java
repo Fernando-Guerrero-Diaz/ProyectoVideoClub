@@ -32,7 +32,7 @@ public class panelMenuPeliculas extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         panelContent = new javax.swing.JPanel();
         botonCrear = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        botonReporte = new javax.swing.JButton();
 
         jPanel1.setPreferredSize(new java.awt.Dimension(630, 515));
 
@@ -54,7 +54,12 @@ public class panelMenuPeliculas extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Reporte Stock");
+        botonReporte.setText("Reporte Stock");
+        botonReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonReporteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -64,7 +69,7 @@ public class panelMenuPeliculas extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botonCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botonReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -77,7 +82,7 @@ public class panelMenuPeliculas extends javax.swing.JPanel {
                 .addGap(62, 62, 62)
                 .addComponent(botonCrear)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(botonReporte)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -103,10 +108,20 @@ public class panelMenuPeliculas extends javax.swing.JPanel {
         panelContent.repaint();
     }//GEN-LAST:event_botonCrearActionPerformed
 
+    private void botonReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteActionPerformed
+        panelReporteStock panelReporte = new panelReporteStock(collectionManager);
+        panelReporte.setSize(623,514);
+        panelReporte.setLocation(0,0);
+        panelContent.removeAll();
+        panelContent.add(panelReporte,BorderLayout.CENTER);
+        panelContent.revalidate();
+        panelContent.repaint();
+    }//GEN-LAST:event_botonReporteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCrear;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton botonReporte;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelContent;
     // End of variables declaration//GEN-END:variables
