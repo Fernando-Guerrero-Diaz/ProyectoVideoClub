@@ -151,7 +151,7 @@ public class VideoClubFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_botonHomeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PanelPelículas panelPeliculas = new PanelPelículas(collectionManager);
+        panelMenuPeliculas panelPeliculas = new panelMenuPeliculas(collectionManager);
         panelPeliculas.setSize(800,514);
         panelPeliculas.setLocation(0,0);
         panelVacio.removeAll();

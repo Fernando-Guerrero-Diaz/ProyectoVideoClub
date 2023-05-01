@@ -7,14 +7,36 @@ public class Cliente {
     private String nombre;
     private int rut;
     private String email;
+    private LocalDate fechaCliente;
     private LinkedList<Arriendo> registroArriendos;
     
     public Cliente(String nombre, int rut, String email){
         this.nombre = nombre;
         this.rut = rut;
         this.email = email;
+        fechaCliente = LocalDate.now();
         registroArriendos = new LinkedList();
     }
+    
+    public Cliente(String nombre, int rut, String email, String fecha){
+    this.nombre = nombre;
+    this.rut = rut;
+    this.email = email;
+    fechaCliente = LocalDate.parse(fecha);
+    registroArriendos = new LinkedList();
+    }
+
+    public LocalDate getFechaCliente() {
+        return fechaCliente;
+    }
+
+    public void setFechaCliente(LocalDate fechaCliente) {
+        this.fechaCliente = fechaCliente;
+    }
+    
+    public int getCantcupones() {
+    return 0;
+}
     
     public String getNombre() {
         return nombre;
@@ -103,4 +125,9 @@ public class Cliente {
             arr.print();
         }
     }
+    
+    public int getDescuentos(){
+        return 0;
+    }
 }
+    
