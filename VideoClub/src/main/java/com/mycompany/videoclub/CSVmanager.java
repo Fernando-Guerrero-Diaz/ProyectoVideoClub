@@ -182,4 +182,17 @@ public class CSVmanager {
         System.setOut(console);
         
     }
+        public void reporteArriendos(String direcciónArchivo, boolean opcion) throws IOException{
+        PrintStream ps = new PrintStream(new File(direcciónArchivo));
+        PrintStream console = System.out;
+        System.setOut(ps);
+        if (opcion) System.out.println("Registro de Arriendos Pendientes:");
+        else System.out.println("Registro de Arriendos ");
+        for(Integer rut: collectionManager.getSetRutClientes()){
+            System.out.println("Arriendos de: "+collectionManager.buscarCliente(rut).getNombre());
+                        collectionManager.buscarCliente(rut).showArriendos(opcion);                                                     
+                    }
+        System.setOut(console);
+        
+    }
 }
