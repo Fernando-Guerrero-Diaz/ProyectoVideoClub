@@ -86,4 +86,8 @@ public class CollectionManager {
         String direccion = "Reportes/" + nombre + ".txt";
         csv_manager.reportePeliculas(direccion);
 }
+    public void reporteArriendo(String nombre, boolean pendientes) throws IOException{
+        String direccion = "Reportes/" + nombre + ".txt";
+        csv_manager.reporteArriendos(direccion,pendientes);
+}
 }
