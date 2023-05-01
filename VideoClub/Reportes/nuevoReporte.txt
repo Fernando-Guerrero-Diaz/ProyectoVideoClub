@@ -1,0 +1,46 @@
+Registro de Arriendos 
+Arriendos de: John Smith
+Pelicula arrendada: Hauru no ugoku shiro
+Fecha de arriendo: 2023-03-28
+Duración de arriendo: 3 días
+Precio de arriendo: 3000
+Estado: Sin Devolver
+Días de atraso: 31 días
+Deuda: 4650
+Pelicula arrendada: Avengers: Endgame
+Fecha de arriendo: 2023-03-25
+Duración de arriendo: 3 días
+Precio de arriendo: 3000
+Estado: Devuelto
+Días de atraso: 0 días
+Deuda: 0
+Arriendos de: XXDemon69SlayerXX
+Pelicula arrendada: Harry Potter and the Deathly Hallows: Part 2
+Fecha de arriendo: 2023-04-25
+Duración de arriendo: 3 días
+Precio de arriendo: 3000
+Estado: Devuelto
+Días de atraso: 1 días
+Deuda: 150
+Pelicula arrendada: Hauru no ugoku shiro
+Fecha de arriendo: 2023-03-23
+Duración de arriendo: 3 días
+Precio de arriendo: 3000
+Estado: Devuelto
+Días de atraso: 0 días
+Deuda: 0
+Arriendos de: Fernando Guerrero
+Pelicula arrendada: Harry Potter and the Deathly Hallows: Part 2
+Fecha de arriendo: 2023-04-20
+Duración de arriendo: 3 días
+Precio de arriendo: 3000
+Estado: Devuelto
+Días de atraso: 0 días
+Deuda: 0
+Pelicula arrendada: Captain America: The Winter Soldier
+Fecha de arriendo: 2023-04-28
+Duración de arriendo: 3 días
+Precio de arriendo: 3000
+Estado: Sin Devolver
+Días de atraso: 0 días
+Deuda: 0

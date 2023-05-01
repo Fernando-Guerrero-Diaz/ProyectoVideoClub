@@ -1,0 +1,18 @@
+Registro de Arriendos Pendientes:
+Arriendos de: John Smith
+Pelicula arrendada: Hauru no ugoku shiro
+Fecha de arriendo: 2023-03-28
+Duración de arriendo: 3 días
+Precio de arriendo: 3000
+Estado: Sin Devolver
+Días de atraso: 31 días
+Deuda: 4650
+Arriendos de: XXDemon69SlayerXX
+Arriendos de: Fernando Guerrero
+Pelicula arrendada: Captain America: The Winter Soldier
+Fecha de arriendo: 2023-04-28
+Duración de arriendo: 3 días
+Precio de arriendo: 3000
+Estado: Sin Devolver
+Días de atraso: 0 días
+Deuda: 0
