@@ -33,7 +33,7 @@ public class VideoClubFrame extends javax.swing.JFrame {
         panelVacio = new javax.swing.JPanel();
         panelMenuPrincipal = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        botonCliente = new javax.swing.JButton();
         botonArriendos = new javax.swing.JButton();
         botonGuardarYSalir = new javax.swing.JButton();
 
@@ -53,7 +53,12 @@ public class VideoClubFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("CLIENTES");
+        botonCliente.setText("CLIENTES");
+        botonCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonClienteActionPerformed(evt);
+            }
+        });
 
         botonArriendos.setText("ARRIENDOS");
         botonArriendos.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +75,7 @@ public class VideoClubFrame extends javax.swing.JFrame {
                 .addContainerGap(344, Short.MAX_VALUE)
                 .addGroup(panelMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(botonArriendos)
-                    .addComponent(jButton2)
+                    .addComponent(botonCliente)
                     .addComponent(jButton1))
                 .addContainerGap(331, Short.MAX_VALUE))
         );
@@ -80,7 +85,7 @@ public class VideoClubFrame extends javax.swing.JFrame {
                 .addGap(88, 88, 88)
                 .addComponent(jButton1)
                 .addGap(117, 117, 117)
-                .addComponent(jButton2)
+                .addComponent(botonCliente)
                 .addGap(86, 86, 86)
                 .addComponent(botonArriendos)
                 .addContainerGap(131, Short.MAX_VALUE))
@@ -170,6 +175,16 @@ public class VideoClubFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonGuardarYSalirActionPerformed
 
+    private void botonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClienteActionPerformed
+        panelClientes panelCliente = new panelClientes(collectionManager);
+        panelCliente.setSize(800,514);
+        panelCliente.setLocation(0,0);
+        panelVacio.removeAll();
+        panelVacio.add(panelCliente,BorderLayout.CENTER);
+        panelVacio.revalidate();
+        panelVacio.repaint();
+    }//GEN-LAST:event_botonClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -208,10 +223,10 @@ public class VideoClubFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonArriendos;
+    private javax.swing.JButton botonCliente;
     private javax.swing.JButton botonGuardarYSalir;
     private javax.swing.JButton botonHome;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel panelMenuPrincipal;
     private javax.swing.JPanel panelVacio;
     // End of variables declaration//GEN-END:variables
