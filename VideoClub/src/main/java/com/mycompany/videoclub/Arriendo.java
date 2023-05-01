@@ -24,6 +24,7 @@ public class Arriendo {
         precioArriendo = precio;
         devuelto = status;
         díasAtraso = atraso;
+        películaArrendada.arrendar();
     }
     
     public LocalDate getFechaArriendo(){
@@ -100,6 +101,7 @@ public class Arriendo {
         return diferenciaDías;
     }
     public void devolver(){
+        películaArrendada.devolver();
         díasAtraso = díasDeAtraso();
         devuelto = true;
         

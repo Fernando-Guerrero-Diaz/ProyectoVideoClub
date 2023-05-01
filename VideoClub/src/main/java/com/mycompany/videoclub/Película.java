@@ -115,7 +115,14 @@ public class Película {
     public void setArriendos(int arriendos) {
         this.arriendos = arriendos;
     }
-
+    public void arrendar(){
+        arriendos = arriendos+1;
+        stock = stock-1;
+    }
+    public void devolver(){
+        arriendos = arriendos-1;
+        stock = stock+1;
+    }
     public void print(){
         System.out.println("Nombre de Película: " + nombre);
         System.out.print("Directores: " + directores[0]);
