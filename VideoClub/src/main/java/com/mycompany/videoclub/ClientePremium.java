@@ -36,6 +36,9 @@ public int usarCupones(){
     cantcupones=cantcupones-1;
     return calcularDescuento();
 }
+public void agregarCupones(int cantidad){
+    cantcupones = cantcupones+cantidad;
+}
 
 public int calcularDescuento(){
     LocalDate díaHoy = LocalDate.now();
