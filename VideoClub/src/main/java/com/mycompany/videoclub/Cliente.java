@@ -54,8 +54,18 @@ public class Cliente {
         System.out.println("Rut: " + Integer.toString(rut));
         System.out.println("Email:" + email);
     }
+    public int cantPendientes(){
+        int cont=0;
+        for(int i = 0;i<registroArriendos.size();i++){
+            if(registroArriendos.get(i).getDevuelto()==false){
+               cont++; 
+            }
+        }
+        return cont;
+    }
     public Arriendo[] ArriendosPendientes(boolean pendientes){
-        Arriendo array[] = new Arriendo[registroArriendos.size()];
+        Arriendo array[] = new Arriendo[cantPendientes()];
+        Arriendo noPendientes[] = new Arriendo[registroArriendos.size()];
         int cont = 0;
         for (int i = 0; i < registroArriendos.size();i++){
             Arriendo arr = registroArriendos.get(i);
@@ -66,10 +76,13 @@ public class Cliente {
                 } 
             }
             else{
-                array[i] = arr; 
+                noPendientes[i] = arr; 
             }
         }
-        return array;
+        if(pendientes){
+             return array;
+        }
+       return noPendientes;
     }
     
     public void showArriendos(boolean pendientes){
