@@ -16,6 +16,7 @@ public class Arriendo {
         díasArriendo = días;
         precioArriendo = precio;
         devuelto = false;
+        películaArrendada.arrendar();
     }
     public Arriendo(Película película, String fecha, long días, int precio, boolean status, long atraso){
         películaArrendada = película;
@@ -23,8 +24,7 @@ public class Arriendo {
         díasArriendo = días;
         precioArriendo = precio;
         devuelto = status;
-        díasAtraso = atraso;
-        películaArrendada.arrendar();
+        díasAtraso = atraso;   
     }
     
     public LocalDate getFechaArriendo(){
