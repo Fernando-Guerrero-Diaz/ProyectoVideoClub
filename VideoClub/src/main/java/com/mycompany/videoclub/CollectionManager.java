@@ -82,4 +82,8 @@ public class CollectionManager {
             System.out.println("Error en escritura");
         }
     }
+    public void reporteStock(String nombre) throws IOException{
+        String direccion = "Reportes/" + nombre + ".txt";
+        csv_manager.reportePeliculas(direccion);
+}
 }
