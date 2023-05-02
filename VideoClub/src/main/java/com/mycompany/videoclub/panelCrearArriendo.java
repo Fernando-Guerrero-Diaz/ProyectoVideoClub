@@ -166,24 +166,23 @@ public class panelCrearArriendo extends javax.swing.JPanel {
             catch(PelículaNotFoundException p){
                 JOptionPane.showMessageDialog(null, "Pelicula Inexistente.", "Error", HEIGHT); 
             }
-        }
-        
-                
- 
-        
-        
         
     }//GEN-LAST:event_botonCrearArriendoActionPerformed
 
     private void botonDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDescuentoActionPerformed
-        int precio = Integer.valueOf(fieldPrecio.getText());
-        int descuento = collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())).calcularDescuento();
-        int precioFinal = (precio*descuento)/100;
-        if(collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())) instanceof ClientePremium){
+        try{
+            int precio = Integer.valueOf(fieldPrecio.getText());
+            int descuento = collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())).calcularDescuento();
+            int precioFinal = (precio*descuento)/100;
+            if(collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())) instanceof ClientePremium){
             fieldPrecioFinal.setText(String.valueOf(precioFinal));
-        }
-        else{
+            }
+            else{
             fieldPrecioFinal.setText(fieldPrecio.getText());
+            }
+        }
+        catch(ClienteNotFoundException c){
+                JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
         }
         
     }//GEN-LAST:event_botonDescuentoActionPerformed
