@@ -10,7 +10,8 @@ public class Arriendo {
     private boolean devuelto;
     private long díasAtraso;
     
-    public Arriendo(Película película, long días, int precio){
+    public Arriendo(Película película, long días, int precio) throws OutOfStockException{
+        if (película.getStock() <=0) throw new OutOfStockException();
         películaArrendada = película;
         fechaArriendo = LocalDate.now();
         díasArriendo = días;
