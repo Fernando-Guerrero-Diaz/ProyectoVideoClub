@@ -13,6 +13,11 @@ import java.time.temporal.ChronoUnit;
  */
 public class ClientePremium extends Cliente{
     private int cantcupones;
+    
+public ClientePremium(int cantcupones, String nombre,int rut, String email){
+    super(nombre,rut,email);
+    this.cantcupones = cantcupones;
+}
 
 public ClientePremium(int cantcupones, String nombre,int rut, String email,String fechacliente){
     super(nombre,rut,email,fechacliente);
