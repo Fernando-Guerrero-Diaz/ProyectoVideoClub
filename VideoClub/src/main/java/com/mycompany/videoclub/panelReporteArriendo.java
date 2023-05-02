@@ -4,9 +4,11 @@
  */
 package com.mycompany.videoclub;
 
+import static java.awt.image.ImageObserver.HEIGHT;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -98,11 +100,17 @@ public class panelReporteArriendo extends javax.swing.JPanel {
             } catch (IOException ex) {
                 Logger.getLogger(panelReporteArriendo.class.getName()).log(Level.SEVERE, null, ex);
             }
+            catch(NumberFormatException e1){
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos Correctamente", "Error", HEIGHT);
+        }
         }
         else try {
             collectionManager.reporteArriendo(fieldNombre.getText(), false);
         } catch (IOException ex) {
             Logger.getLogger(panelReporteArriendo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch(NumberFormatException e1){
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos Correctamente", "Error", HEIGHT);
         }
     }//GEN-LAST:event_botonGuardarReporteActionPerformed
 

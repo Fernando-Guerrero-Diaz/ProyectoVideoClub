@@ -164,7 +164,7 @@ public class PanelPelículas extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Código Ya Ocupado.", "Error", HEIGHT);
         }
         catch(NumberFormatException e1){
-            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos", "Error", HEIGHT);
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos Correctamente", "Error", HEIGHT);
         }
         
     }//GEN-LAST:event_botonAgregarPeliculaActionPerformed
