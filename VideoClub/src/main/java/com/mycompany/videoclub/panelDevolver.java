@@ -116,23 +116,34 @@ public class panelDevolver extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarClienteActionPerformed
-        Cliente cliente = collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText()));
-        if (cliente == null){
-            JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
+        try{
+            Cliente cliente = collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText()));
+            if (cliente == null){
+                JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
+            }
+            else fillComboBox(cliente);
         }
-        else fillComboBox(cliente);
+        catch(ClienteNotFoundException e){
+                JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
+            }
         
 
     }//GEN-LAST:event_botonBuscarClienteActionPerformed
 
     private void botonDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDevolverActionPerformed
-        if(comboBoxArriendosPendientes.getSelectedItem()==null){
+        try{
+            if(comboBoxArriendosPendientes.getSelectedItem()==null){
             JOptionPane.showMessageDialog(null, "No Hay Arriendos Seleccionados.", "Error", HEIGHT);
+            }
+            else {
+                int index = comboBoxArriendosPendientes.getSelectedIndex();
+                collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())).arriendosPendientes(true)[index].devolver();
+            }
         }
-        else {
-            int index = comboBoxArriendosPendientes.getSelectedIndex();
-            collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())).arriendosPendientes(true)[index].devolver();
-        }
+        catch(ClienteNotFoundException e){
+                JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
+            }
+        
     }//GEN-LAST:event_botonDevolverActionPerformed
 
 
