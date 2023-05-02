@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class panelCrearArriendo extends javax.swing.JPanel {
     private CollectionManager collectionManager;
+    private boolean descuentoApli = false;
     /**
      * Creates new form panelCrearArriendo
      */
@@ -150,31 +151,32 @@ public class panelCrearArriendo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonCrearArriendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearArriendoActionPerformed
-        Cliente cliente = collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText()));
-        Película peli = collectionManager.buscarPelicula(fieldId.getText());
-        if (cliente == null){
-            JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
-        }
-        else if (peli == null){
-            JOptionPane.showMessageDialog(null, "Pelicula Inexistente.", "Error", HEIGHT);
-        }
-        else{
+
             try{
+                if(descuentoApli==false){
+                    fieldPrecioFinal.setText(fieldPrecio.getText());
+                }
+                Película peli = collectionManager.buscarPelicula(fieldId.getText());
                 Arriendo nuevo = new Arriendo(peli,Long.valueOf(fieldDias.getText()),Integer.valueOf(fieldPrecioFinal.getText()));
-        collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())).addFirstArriendo(nuevo); 
+                collectionManager.buscarCliente(Integer.parseInt(fieldRutCliente.getText())).addFirstArriendo(nuevo); 
             }
             catch(OutOfStockException e){
                 JOptionPane.showMessageDialog(null, "Pelicula Sin stock.", "Error", HEIGHT); 
             }
-        
-    }
+            catch( ClienteNotFoundException e1){
+                JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
+            }
+            catch(PelículaNotFoundException e){
+                JOptionPane.showMessageDialog(null, "Pelicula Inexistente", "Error", HEIGHT);
+            }
         
         
         
     }//GEN-LAST:event_botonCrearArriendoActionPerformed
 
     private void botonDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDescuentoActionPerformed
-        int precio = Integer.valueOf(fieldPrecio.getText());
+        try{
+            int precio = Integer.valueOf(fieldPrecio.getText());
         int descuento = collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())).calcularDescuento();
         int precioFinal = (precio*descuento)/100;
         if(collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())) instanceof ClientePremium){
@@ -183,6 +185,11 @@ public class panelCrearArriendo extends javax.swing.JPanel {
         else{
             fieldPrecioFinal.setText(fieldPrecio.getText());
         }
+        descuentoApli = true;
+        }
+        catch( ClienteNotFoundException e1){
+                JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
+        }        
         
     }//GEN-LAST:event_botonDescuentoActionPerformed
 
