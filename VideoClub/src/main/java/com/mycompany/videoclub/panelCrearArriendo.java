@@ -125,18 +125,22 @@ public class panelCrearArriendo extends javax.swing.JPanel {
 
     private void botonCrearArriendoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearArriendoActionPerformed
         Cliente cliente = collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText()));
+        Película peli = collectionManager.buscarPelicula(fieldId.getText());
         if (cliente == null){
             JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
         }
-        Película peli = collectionManager.buscarPelicula(fieldId.getText());
-        if (peli == null){
+        else if (peli == null){
             JOptionPane.showMessageDialog(null, "Pelicula Inexistente.", "Error", HEIGHT);
         }
         else if(peli.getStock()<=0){
            JOptionPane.showMessageDialog(null, "Pelicula Sin stock.", "Error", HEIGHT); 
         }
+        else{
         Arriendo nuevo = new Arriendo(peli,Long.valueOf(fieldDias.getText()),Integer.valueOf(fieldPrecio.getText()));
         collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())).addFirstArriendo(nuevo); 
+    }
+        
+        
         
     }//GEN-LAST:event_botonCrearArriendoActionPerformed
 
