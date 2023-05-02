@@ -85,7 +85,7 @@ public class Cliente {
         }
         return cont;
     }
-    public Arriendo[] ArriendosPendientes(boolean pendientes){
+    public Arriendo[] arriendosPendientes(boolean pendientes){
         Arriendo array[] = new Arriendo[cantPendientes()];
         Arriendo noPendientes[] = new Arriendo[registroArriendos.size()];
         int cont = 0;

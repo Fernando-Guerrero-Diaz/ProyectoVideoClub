@@ -52,15 +52,7 @@ public class Película {
     public void setDirectores(String[] directores) {
         this.directores = directores;
     }
-    /*
-    public String[] getActoresPrincipales() {
-        return actoresPrincipales;
-    }
 
-    public void setActoresPrincipales(String[] actoresPrincipales) {
-        this.actoresPrincipales = actoresPrincipales;
-    }
-*/
     public String[] getGéneros() {
         return géneros;
     }
@@ -141,9 +133,9 @@ public class Película {
 
     }
     
-    public int VotacionTotal(){
-        int Ctotal;
-        Ctotal = puntuación*votos;
-        return Ctotal;
+    public int votacionTotal(){
+        int cTotal;
+        cTotal = puntuación*votos;
+        return cTotal;
     }
 }

@@ -160,7 +160,7 @@ public class CSVmanager {
         escritor.println();
         for (int rut: collectionManager.getSetRutClientes()){
             Cliente cliente = collectionManager.buscarCliente(rut);
-            Arriendo[] arriendos = cliente.ArriendosPendientes(false);
+            Arriendo[] arriendos = cliente.arriendosPendientes(false);
             for(Arriendo arr:arriendos){
                 String dataline = getDatalineArriendo(arr,rut);
                 escritor.print(dataline);

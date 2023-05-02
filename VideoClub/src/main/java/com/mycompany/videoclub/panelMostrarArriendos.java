@@ -145,7 +145,7 @@ public class panelMostrarArriendos extends javax.swing.JPanel {
                 labelMailCliente.setText("Mail Cliente: " + cliente.getEmail());
                 crearTabla();
                 String[] columnas = new String[6];
-                Arriendo arr[] = cliente.ArriendosPendientes(false);
+                Arriendo arr[] = cliente.arriendosPendientes(false);
                 for(int i = 0;i<arr.length;i++){
                     columnas[0] = arr[i].getPelículaArrendada().getNombre();
                     columnas[1] = arr[i].getFechaArriendo().toString();

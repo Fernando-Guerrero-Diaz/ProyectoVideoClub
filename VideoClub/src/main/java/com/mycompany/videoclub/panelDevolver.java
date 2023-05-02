@@ -131,7 +131,7 @@ public class panelDevolver extends javax.swing.JPanel {
         }
         else {
             int index = comboBoxArriendosPendientes.getSelectedIndex();
-            collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())).ArriendosPendientes(true)[index].devolver();
+            collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())).arriendosPendientes(true)[index].devolver();
         }
     }//GEN-LAST:event_botonDevolverActionPerformed
 
