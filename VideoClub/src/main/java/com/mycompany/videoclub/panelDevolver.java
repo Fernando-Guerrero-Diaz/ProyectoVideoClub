@@ -22,7 +22,7 @@ public class panelDevolver extends javax.swing.JPanel {
     public void fillComboBox(Cliente cliente){
         try{
         comboBoxArriendosPendientes.removeAllItems();
-        Arriendo arr[] = cliente.ArriendosPendientes(true);
+        Arriendo arr[] = cliente.arriendosPendientes(true);
         for(int i=0; i<arr.length;i++){
             comboBoxArriendosPendientes.addItem(arr[i].getPelículaArrendada().getNombre());
         }
