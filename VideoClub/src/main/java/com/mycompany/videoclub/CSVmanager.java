@@ -75,20 +75,28 @@ public class CSVmanager {
         Scanner lector = new Scanner(archivoArriendos);
         lector.nextLine();
         while (lector.hasNextLine()){
-            String dataLine = lector.nextLine();
-            String[] dataArray = dataLine.split(";");
-            int rut = Integer.parseInt(dataArray[0]);
-            String id=dataArray[1];
-            String fecha = dataArray[2];
-            long díasArriendo = Long.parseLong(dataArray[3]);
-            int precio = Integer.parseInt(dataArray[4]);
-            boolean estado = (dataArray[5].equals("devuelto"));
-            long díasAtraso = Long.parseLong(dataArray[6]);
-            Cliente cliente = collectionManager.buscarCliente(rut);
-            Película peli = collectionManager.buscarPelicula(id);
-            if (cliente == null || peli == null) continue;
-            Arriendo nuevo = new Arriendo(peli,fecha,díasArriendo,precio,estado,díasAtraso);
-            cliente.addLastArriendo(nuevo);
+            try{
+                String dataLine = lector.nextLine();
+                String[] dataArray = dataLine.split(";");
+                int rut = Integer.parseInt(dataArray[0]);
+                String id=dataArray[1];
+                String fecha = dataArray[2];
+                long díasArriendo = Long.parseLong(dataArray[3]);
+                int precio = Integer.parseInt(dataArray[4]);
+                boolean estado = (dataArray[5].equals("devuelto"));
+                long díasAtraso = Long.parseLong(dataArray[6]);
+                Cliente cliente = collectionManager.buscarCliente(rut);
+                Película peli = collectionManager.buscarPelicula(id);
+                if (cliente == null || peli == null) continue;
+                Arriendo nuevo = new Arriendo(peli,fecha,díasArriendo,precio,estado,díasAtraso);
+                cliente.addLastArriendo(nuevo);
+            }
+            catch(PelículaNotFoundException p){
+                
+            }
+            catch(ClienteNotFoundException c){
+                
+            }
         }
     }
     
@@ -133,10 +141,15 @@ public class CSVmanager {
         escritor.write("Const;Title;IMDb Rating;Genres;Num Votes;Directors;Stock;Arriendos");
         escritor.newLine();
         for (String id: collectionManager.getSetIDPelículas()){
-            Película peli = collectionManager.buscarPelicula(id);
-            String dataline = getDatalinePelicula(peli);
-            escritor.write(dataline);
-            escritor.newLine();   
+            try{
+                Película peli = collectionManager.buscarPelicula(id);
+                String dataline = getDatalinePelicula(peli);
+                escritor.write(dataline);
+                escritor.newLine();
+            }
+            catch(PelículaNotFoundException p){
+                
+            }
             }
         escritor.close();
     }
@@ -146,10 +159,15 @@ public class CSVmanager {
         escritor.write("Rut;Nombre;email");
         escritor.newLine();
         for (int rut: collectionManager.getSetRutClientes()){
-            Cliente cliente = collectionManager.buscarCliente(rut);
-            String dataline = getDatalineCliente(cliente);
-            escritor.write(dataline);
-            escritor.newLine();   
+            try{
+                Cliente cliente = collectionManager.buscarCliente(rut);
+                String dataline = getDatalineCliente(cliente);
+                escritor.write(dataline);
+                escritor.newLine();
+                }
+            catch(ClienteNotFoundException c){
+                
+                }
             }
         escritor.close();
     }
@@ -159,12 +177,17 @@ public class CSVmanager {
         escritor.print("Rut Cliente;ID Pelicula;Fecha Arriendo(YYYY-MM-DD);Dias Arriendo;PrecioArriendo;Estado;DiasAtraso");
         escritor.println();
         for (int rut: collectionManager.getSetRutClientes()){
-            Cliente cliente = collectionManager.buscarCliente(rut);
-            Arriendo[] arriendos = cliente.arriendosPendientes(false);
-            for(Arriendo arr:arriendos){
-                String dataline = getDatalineArriendo(arr,rut);
-                escritor.print(dataline);
-                escritor.println();   
+            try{
+                Cliente cliente = collectionManager.buscarCliente(rut);
+                Arriendo[] arriendos = cliente.arriendosPendientes(false);
+                for(Arriendo arr:arriendos){
+                    String dataline = getDatalineArriendo(arr,rut);
+                    escritor.print(dataline);
+                    escritor.println();   
+                    }
+                }
+            catch(ClienteNotFoundException c){
+                
                 }
             }
         escritor.close();
@@ -176,8 +199,13 @@ public class CSVmanager {
         System.setOut(ps);
         System.out.println("Películas registradas en el sistema");
         for (String id: collectionManager.getSetIDPelículas()){
-            Película peli = collectionManager.buscarPelicula(id);
-            peli.print();
+            try{
+                Película peli = collectionManager.buscarPelicula(id);
+                peli.print();
+                }
+            catch(PelículaNotFoundException p){
+                
+                }
             }
         System.setOut(console);
         
@@ -189,9 +217,14 @@ public class CSVmanager {
         if (opcion) System.out.println("Registro de Arriendos Pendientes:");
         else System.out.println("Registro de Arriendos ");
         for(Integer rut: collectionManager.getSetRutClientes()){
-            System.out.println("Arriendos de: "+collectionManager.buscarCliente(rut).getNombre());
-                        collectionManager.buscarCliente(rut).showArriendos(opcion);                                                     
+            try{
+                System.out.println("Arriendos de: "+collectionManager.buscarCliente(rut).getNombre());
+                            collectionManager.buscarCliente(rut).showArriendos(opcion);                                                     
                     }
+            catch(ClienteNotFoundException c){
+                
+            }
+        }   
         System.setOut(console);
         
     }
