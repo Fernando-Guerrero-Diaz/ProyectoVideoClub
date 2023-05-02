@@ -4,6 +4,9 @@
  */
 package com.mycompany.videoclub;
 
+import static java.awt.image.ImageObserver.HEIGHT;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author njorg
@@ -81,7 +84,13 @@ public class panelEliminarCliente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarClienteActionPerformed
-        collectionManager.eliminarCliente(Integer.valueOf(fieldRut.getText()));
+        try{
+            collectionManager.eliminarCliente(Integer.valueOf(fieldRut.getText()));
+        }
+        catch(NumberFormatException e1){
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos Correctamente", "Error", HEIGHT);
+        }
+        
     }//GEN-LAST:event_botonEliminarClienteActionPerformed
 
 

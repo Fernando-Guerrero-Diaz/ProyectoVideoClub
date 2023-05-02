@@ -126,6 +126,9 @@ public class panelDevolver extends javax.swing.JPanel {
         catch(ClienteNotFoundException e){
                 JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
             }
+        catch(NumberFormatException e1){
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos Correctamente", "Error", HEIGHT);
+        }
         
 
     }//GEN-LAST:event_botonBuscarClienteActionPerformed
@@ -143,6 +146,9 @@ public class panelDevolver extends javax.swing.JPanel {
         catch(ClienteNotFoundException e){
                 JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
             }
+        catch(NumberFormatException e1){
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos Correctamente", "Error", HEIGHT);
+        }
         
     }//GEN-LAST:event_botonDevolverActionPerformed
 

@@ -4,6 +4,9 @@
  */
 package com.mycompany.videoclub;
 
+import static java.awt.image.ImageObserver.HEIGHT;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sulfu
@@ -153,9 +156,17 @@ public class PanelPelículas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonAgregarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarPeliculaActionPerformed
-        Película película = new Película(fieldId.getText(), fieldTitulo.getText(), fieldDirectores.getText().split(","), Integer.valueOf(fieldPuntuacion.getText()), Integer.valueOf(fieldStock.getText()), 0, fieldGeneros.getText().split(","), Integer.valueOf(fieldVotos.getText()));
-        collectionManager.agregarPelícula(película);
-        película.print();
+        try{
+            Película película = new Película(fieldId.getText(), fieldTitulo.getText(), fieldDirectores.getText().split(","), Integer.valueOf(fieldPuntuacion.getText()), Integer.valueOf(fieldStock.getText()), 0, fieldGeneros.getText().split(","), Integer.valueOf(fieldVotos.getText()));
+            collectionManager.agregarPelícula(película);
+        }
+        catch(PelículaExistenteException e){
+            JOptionPane.showMessageDialog(null, "Código Ya Ocupado.", "Error", HEIGHT);
+        }
+        catch(NumberFormatException e1){
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos", "Error", HEIGHT);
+        }
+        
     }//GEN-LAST:event_botonAgregarPeliculaActionPerformed
 
 

@@ -158,6 +158,9 @@ public class panelMostrarArriendos extends javax.swing.JPanel {
             } catch(ClienteNotFoundException e){
                 JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
             }
+            catch(NumberFormatException e1){
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos Correctamente", "Error", HEIGHT);
+        }
         }
         
         
