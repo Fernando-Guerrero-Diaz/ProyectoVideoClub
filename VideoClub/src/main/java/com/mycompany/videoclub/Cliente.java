@@ -25,7 +25,9 @@ public class Cliente {
     fechaCliente = LocalDate.parse(fecha);
     registroArriendos = new LinkedList();
     }
-
+    public void agregarCupones(int cantidad){
+        
+    }
     public LocalDate getFechaCliente() {
         return fechaCliente;
     }

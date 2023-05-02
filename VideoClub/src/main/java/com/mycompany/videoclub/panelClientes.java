@@ -32,6 +32,7 @@ public class panelClientes extends javax.swing.JPanel {
         panelContent = new javax.swing.JPanel();
         botonCrearCliente = new javax.swing.JButton();
         botonEliminarCliente = new javax.swing.JButton();
+        panelAdminClientes = new javax.swing.JButton();
 
         panelContent.setPreferredSize(new java.awt.Dimension(623, 515));
 
@@ -60,16 +61,29 @@ public class panelClientes extends javax.swing.JPanel {
             }
         });
 
+        panelAdminClientes.setText("Administrar Clientes");
+        panelAdminClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                panelAdminClientesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botonCrearCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonEliminarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(botonCrearCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonEliminarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(22, Short.MAX_VALUE)
+                        .addComponent(panelAdminClientes)
+                        .addGap(18, 18, 18)))
                 .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -80,7 +94,9 @@ public class panelClientes extends javax.swing.JPanel {
                 .addComponent(botonCrearCliente)
                 .addGap(18, 18, 18)
                 .addComponent(botonEliminarCliente)
-                .addContainerGap(380, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(panelAdminClientes)
+                .addContainerGap(339, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -104,10 +120,21 @@ public class panelClientes extends javax.swing.JPanel {
         panelContent.repaint();
     }//GEN-LAST:event_botonEliminarClienteActionPerformed
 
+    private void panelAdminClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_panelAdminClientesActionPerformed
+        panelAdminClientes panelAdmin = new panelAdminClientes(collectionManager);
+        panelAdmin.setSize(623,514);
+        panelAdmin.setLocation(0,0);
+        panelContent.removeAll();
+        panelContent.add(panelAdmin,BorderLayout.CENTER);
+        panelContent.revalidate();
+        panelContent.repaint();
+    }//GEN-LAST:event_panelAdminClientesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCrearCliente;
     private javax.swing.JButton botonEliminarCliente;
+    private javax.swing.JButton panelAdminClientes;
     private javax.swing.JPanel panelContent;
     // End of variables declaration//GEN-END:variables
 }
