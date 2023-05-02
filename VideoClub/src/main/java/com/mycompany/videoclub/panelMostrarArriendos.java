@@ -136,11 +136,8 @@ public class panelMostrarArriendos extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Ingrese Un Cliente.", "Error", HEIGHT);
         }
         else{
-            Cliente cliente = collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText()));
-            if(cliente == null){
-                JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
-            }
-            else{
+            try{
+                Cliente cliente = collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText()));
                 labelNombreCliente.setText("Nombre Cliente: " + cliente.getNombre());
                 labelMailCliente.setText("Mail Cliente: " + cliente.getEmail());
                 crearTabla();
@@ -158,6 +155,8 @@ public class panelMostrarArriendos extends javax.swing.JPanel {
                     columnas[5] = String.valueOf(arr[i].getDíasAtraso());
                     modelo.addRow(columnas);
                 }
+            } catch(ClienteNotFoundException e){
+                JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
             }
         }
         
