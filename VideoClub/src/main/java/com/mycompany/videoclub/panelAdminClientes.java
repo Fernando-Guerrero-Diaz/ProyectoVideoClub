@@ -140,34 +140,46 @@ public class panelAdminClientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-        Cliente cliente = collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText()));
-        if(cliente==null){
-            JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
-        }
-        else{
-            if (cliente instanceof ClientePremium ){
-                fieldCupones.setVisible(true);
-                cuponesLabel.setVisible(true);
-                labelCant.setVisible(true);
-                labelCant.setText("Cantidad Cupones:    " + String.valueOf(cliente.getCantcupones()));
-                fieldCupones.setText("0");
-                fieldNombre.setText(cliente.getNombre());
-                fieldMail.setText(cliente.getEmail());
+        try{
+            Cliente cliente = collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText()));
+            if(cliente==null){
+                JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
             }
             else{
-                fieldNombre.setText(cliente.getNombre());
-                fieldMail.setText(cliente.getEmail());
+                if (cliente instanceof ClientePremium ){
+                    fieldCupones.setVisible(true);
+                    cuponesLabel.setVisible(true);
+                    labelCant.setVisible(true);
+                    labelCant.setText("Cantidad Cupones:    " + String.valueOf(cliente.getCantcupones()));
+                    fieldCupones.setText("0");
+                    fieldNombre.setText(cliente.getNombre());
+                    fieldMail.setText(cliente.getEmail());
+                }
+                else{
+                    fieldNombre.setText(cliente.getNombre());
+                    fieldMail.setText(cliente.getEmail());
+                }
             }
         }
+        catch(ClienteNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
+        }
+        
         
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
-        collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText())).setEmail(fieldMail.getText());
-        collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText())).setNombre(fieldNombre.getText());
-        if(collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText())) instanceof ClientePremium){
-            collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText())).agregarCupones(Integer.valueOf(fieldCupones.getText()));
+        try{
+            collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText())).setEmail(fieldMail.getText());
+            collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText())).setNombre(fieldNombre.getText());
+            if(collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText())) instanceof ClientePremium){
+                collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText())).agregarCupones(Integer.valueOf(fieldCupones.getText()));
+            }
         }
+        catch(ClienteNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
+        }
+        
     }//GEN-LAST:event_botonModificarActionPerformed
     
 
