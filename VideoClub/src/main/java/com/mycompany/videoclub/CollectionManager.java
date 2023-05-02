@@ -22,40 +22,36 @@ public class CollectionManager {
         
         try{
             mapaPelículas = csv_manager.lecturaPelículas("Files/Peliculas.csv");
-            System.out.println("Peliculas leídas");
         }catch( FileNotFoundException e){
-                System.out.println("No se encuentra archivo,");
                 mapaPelículas = new HashMap<String,Película>();
                 }
         try{
             mapaCliente = csv_manager.lecturaClientes("Files/Clientes.csv");
-            System.out.println("Clientes Leídos");
         }catch(FileNotFoundException f){
             mapaCliente= new HashMap<Integer,Cliente>();
         }
         try {
             csv_manager.lecturaArriendos("Files/Arriendos.csv");
-            System.out.println("Arriendos Leídos");
         }catch(FileNotFoundException g){
-            System.out.println("No se puede leer arriendos");
+
         }
         
     }
-    public Cliente buscarCliente(int rut){
+    public Cliente buscarCliente(int rut) throws ClienteNotFoundException{
         for ( Integer key: mapaCliente.keySet()){
             if (mapaCliente.get(key).getRut() == rut){
                 return mapaCliente.get(key);
             }
         }
-        return null;
+        throw new ClienteNotFoundException();
     }
-    public Película buscarPelicula(String id){
+    public Película buscarPelicula(String id) throws PelículaNotFoundException{
         for ( String key: mapaPelículas.keySet()){
             if (mapaPelículas.get(key).getId().equals(id)){
                 return mapaPelículas.get(key);
             }
         }
-        return null;
+        throw new PelículaNotFoundException();
     }
     public void agregarPelícula(Película peli){
         mapaPelículas.put(peli.getId(),peli);
