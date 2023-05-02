@@ -53,11 +53,23 @@ public class CollectionManager {
         }
         throw new PelículaNotFoundException();
     }
-    public void agregarPelícula(Película peli){
-        mapaPelículas.put(peli.getId(),peli);
+    public void agregarPelícula(Película peli) throws PelículaExistenteException{
+        try{
+            buscarPelicula(peli.getId());
+            throw new PelículaExistenteException();
+        }
+        catch(PelículaNotFoundException p){
+            mapaPelículas.put(peli.getId(),peli);
+        }
     }
-    public void agregarCliente(Cliente cc){
-        mapaCliente.put(cc.getRut(), cc);
+    public void agregarCliente(Cliente cc) throws ClienteExistenteException{
+        try {
+            buscarCliente(cc.getRut());
+            throw new ClienteExistenteException();
+        }
+        catch(ClienteNotFoundException c){
+            mapaCliente.put(cc.getRut(), cc);
+        }
     }
     public void eliminarCliente(int key){
         mapaCliente.remove(key);
