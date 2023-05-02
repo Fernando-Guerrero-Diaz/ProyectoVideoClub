@@ -21,6 +21,7 @@ public class panelAdminClientes extends javax.swing.JPanel {
         collectionManager = mc;
         fieldCupones.setVisible(false);
         cuponesLabel.setVisible(false);
+        labelCant.setVisible(false);
     }
 
     /**
@@ -43,6 +44,7 @@ public class panelAdminClientes extends javax.swing.JPanel {
         fieldCupones = new javax.swing.JTextField();
         cuponesLabel = new javax.swing.JLabel();
         botonModificar = new javax.swing.JButton();
+        labelCant = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("ADMINISTRACIÓN CLIENTES");
@@ -73,6 +75,9 @@ public class panelAdminClientes extends javax.swing.JPanel {
             }
         });
 
+        labelCant.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        labelCant.setText("Cantidad Cupones:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,22 +89,25 @@ public class panelAdminClientes extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(114, 114, 114)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(cuponesLabel))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(fieldNombre)
-                            .addComponent(fieldRut)
-                            .addComponent(fieldMail, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                            .addComponent(fieldCupones, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(cuponesLabel))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(fieldNombre)
+                                    .addComponent(fieldRut)
+                                    .addComponent(fieldMail, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                                    .addComponent(fieldCupones, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)))
+                            .addComponent(labelCant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(botonModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(botonBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,7 +131,9 @@ public class panelAdminClientes extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cuponesLabel)
                     .addComponent(fieldCupones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addComponent(labelCant)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(botonModificar)
                 .addGap(73, 73, 73))
         );
@@ -138,7 +148,9 @@ public class panelAdminClientes extends javax.swing.JPanel {
             if (cliente instanceof ClientePremium ){
                 fieldCupones.setVisible(true);
                 cuponesLabel.setVisible(true);
-                fieldCupones.setText(String.valueOf(cliente.getCantcupones()));
+                labelCant.setVisible(true);
+                labelCant.setText("Cantidad Cupones:    " + String.valueOf(cliente.getCantcupones()));
+                fieldCupones.setText("0");
                 fieldNombre.setText(cliente.getNombre());
                 fieldMail.setText(cliente.getEmail());
             }
@@ -171,5 +183,6 @@ public class panelAdminClientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel labelCant;
     // End of variables declaration//GEN-END:variables
 }
