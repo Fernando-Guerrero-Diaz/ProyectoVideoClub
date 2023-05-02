@@ -158,12 +158,15 @@ public class panelCrearArriendo extends javax.swing.JPanel {
         else if (peli == null){
             JOptionPane.showMessageDialog(null, "Pelicula Inexistente.", "Error", HEIGHT);
         }
-        else if(peli.getStock()<=0){
-           JOptionPane.showMessageDialog(null, "Pelicula Sin stock.", "Error", HEIGHT); 
-        }
         else{
-        Arriendo nuevo = new Arriendo(peli,Long.valueOf(fieldDias.getText()),Integer.valueOf(fieldPrecioFinal.getText()));
+            try{
+                Arriendo nuevo = new Arriendo(peli,Long.valueOf(fieldDias.getText()),Integer.valueOf(fieldPrecioFinal.getText()));
         collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())).addFirstArriendo(nuevo); 
+            }
+            catch(OutOfStockException e){
+                JOptionPane.showMessageDialog(null, "Pelicula Sin stock.", "Error", HEIGHT); 
+            }
+        
     }
         
         
