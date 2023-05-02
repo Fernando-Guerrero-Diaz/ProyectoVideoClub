@@ -120,13 +120,26 @@ public class panelCrearCliente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearClienteActionPerformed
-        if (collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText()))==null){
-            Cliente cliente = new Cliente(fieldNombre.getText(),Integer.valueOf(fieldRut.getText()),fieldMail.getText());
-            collectionManager.agregarCliente(cliente);
+        
+        if(radioBotonPremium.isSelected()){
+            if (collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText()))==null){
+                ClientePremium cliente = new ClientePremium(0,fieldNombre.getText(),Integer.valueOf(fieldRut.getText()),fieldMail.getText());
+                collectionManager.agregarCliente(cliente);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Cliente Existente.", "Error", HEIGHT);
+            }
         }
         else{
-            JOptionPane.showMessageDialog(null, "Cliente Existente.", "Error", HEIGHT);
+            if (collectionManager.buscarCliente(Integer.valueOf(fieldRut.getText()))==null){
+                Cliente cliente = new Cliente(fieldNombre.getText(),Integer.valueOf(fieldRut.getText()),fieldMail.getText());
+                collectionManager.agregarCliente(cliente);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Cliente Existente.", "Error", HEIGHT);
+            }
         }
+        
     }//GEN-LAST:event_botonCrearClienteActionPerformed
 
 
