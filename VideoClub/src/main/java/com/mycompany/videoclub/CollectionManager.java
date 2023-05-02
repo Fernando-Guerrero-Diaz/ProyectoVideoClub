@@ -71,7 +71,8 @@ public class CollectionManager {
             mapaCliente.put(cc.getRut(), cc);
         }
     }
-    public void eliminarCliente(int key){
+    public void eliminarCliente(int key) throws ClienteNotFoundException{
+        buscarCliente(key);
         mapaCliente.remove(key);
     }
     
