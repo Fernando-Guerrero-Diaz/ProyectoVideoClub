@@ -87,6 +87,9 @@ public class panelEliminarCliente extends javax.swing.JPanel {
         try{
             collectionManager.eliminarCliente(Integer.valueOf(fieldRut.getText()));
         }
+        catch(ClienteNotFoundException c){
+            JOptionPane.showMessageDialog(null, "Cliente Inexistente.", "Error", HEIGHT);
+        }
         catch(NumberFormatException e1){
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos Correctamente", "Error", HEIGHT);
         }
