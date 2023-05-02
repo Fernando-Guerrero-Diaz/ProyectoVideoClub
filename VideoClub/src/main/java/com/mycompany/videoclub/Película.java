@@ -3,11 +3,9 @@ package com.mycompany.videoclub;
 
 
 public class Película {
-
     private String id;
     private String nombre;
     private String[] directores;
-    //private String[] actoresPrincipales;
     private String[] géneros;
     private int puntuación;
     private int votos;
@@ -84,13 +82,6 @@ public class Película {
     public void setVotos(int votos) {
         this.votos = votos;
     }
-
-    public boolean addVoto(int votacion){
-        if(votacion<0 || votacion >100) return false;
-        puntuación = (puntuación*votos + votacion)/(votos +1);
-        votos++;
-        return true;
-    }
     
     public int getStock() {
         return stock;
@@ -106,6 +97,13 @@ public class Película {
 
     public void setArriendos(int arriendos) {
         this.arriendos = arriendos;
+    }
+    
+    public boolean addVoto(int votacion){
+        if(votacion<0 || votacion >100) return false;
+        puntuación = (puntuación*votos + votacion)/(votos +1);
+        votos++;
+        return true;
     }
     public void arrendar(){
         arriendos = arriendos+1;
