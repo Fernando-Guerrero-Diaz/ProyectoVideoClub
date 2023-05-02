@@ -40,7 +40,7 @@ public class panelCrearArriendo extends javax.swing.JPanel {
         fieldRutCliente = new javax.swing.JTextField();
         fieldId = new javax.swing.JTextField();
         botonCrearArriendo = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        labelPrecio = new javax.swing.JLabel();
         fieldPrecioFinal = new javax.swing.JTextField();
         botonDescuento = new javax.swing.JButton();
 
@@ -66,8 +66,8 @@ public class panelCrearArriendo extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setText("Precio Final:");
+        labelPrecio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelPrecio.setText("Precio Final:");
 
         botonDescuento.setText("Usar Descuento");
         botonDescuento.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +111,7 @@ public class panelCrearArriendo extends javax.swing.JPanel {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(fieldRutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
+                                    .addComponent(labelPrecio)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(fieldPrecioFinal))))
                         .addGap(139, 139, 139))))
@@ -141,7 +141,7 @@ public class panelCrearArriendo extends javax.swing.JPanel {
                 .addComponent(botonDescuento)
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
+                    .addComponent(labelPrecio)
                     .addComponent(fieldPrecioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(botonCrearArriendo)
@@ -177,6 +177,9 @@ public class panelCrearArriendo extends javax.swing.JPanel {
         if(collectionManager.buscarCliente(Integer.valueOf(fieldRutCliente.getText())) instanceof ClientePremium){
             fieldPrecioFinal.setText(String.valueOf(precioFinal));
         }
+        else{
+            fieldPrecioFinal.setText(fieldPrecio.getText());
+        }
         
     }//GEN-LAST:event_botonDescuentoActionPerformed
 
@@ -194,6 +197,6 @@ public class panelCrearArriendo extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel labelPrecio;
     // End of variables declaration//GEN-END:variables
 }
